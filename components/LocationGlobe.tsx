@@ -1,0 +1,149 @@
+"use client";
+
+import dynamic from "next/dynamic";
+import { useEffect, useRef, useState } from "react";
+import type { GlobeMethods } from "react-globe.gl";
+
+const Globe = dynamic(() => import("react-globe.gl"), {
+  ssr: false,
+});
+
+const BOSNIA = {
+  lat: 44.7722,
+  lng: 17.191,
+};
+
+export default function LocationGlobe() {
+  const globeRef = useRef<GlobeMethods | undefined>(undefined);
+
+  const [countries, setCountries] = useState([]);
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    fetch("/data/countries.geojson")
+      .then((res) => res.json())
+      .then((data) => {
+        setCountries(data.features);
+      })
+      .catch((error) => {
+        console.error("Failed to load countries:", error);
+      });
+  }, []);
+
+  useEffect(() => {
+    const updateTime = () => {
+      setTime(
+        new Intl.DateTimeFormat("en-GB", {
+          timeZone: "Europe/Sarajevo",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        }).format(new Date()),
+      );
+    };
+
+    updateTime();
+
+    const interval = setInterval(updateTime, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleGlobeReady = () => {
+    if (!globeRef.current) return;
+
+    globeRef.current.pointOfView(
+      {
+        lat: BOSNIA.lat,
+        lng: BOSNIA.lng,
+        altitude: 1.55,
+      },
+      0,
+    );
+
+    const controls = globeRef.current.controls();
+
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.18;
+
+    controls.enableZoom = false;
+    controls.enablePan = false;
+  };
+
+  return (
+    <section className="relative mt-20 overflow-hidden border-black/[0.08]">
+      <div className="mx-auto grid min-h-[620px] max-w-7xl items-center px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+        <div className="relative z-10 py-20 lg:py-0">
+          <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-black/40">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+            Location
+          </div>
+
+          <h2 className="mt-8 max-w-xl text-5xl font-semibold tracking-[-0.05em] sm:text-6xl lg:text-7xl">
+            Available
+            <br />
+            <span className="text-accent">globally.</span>
+          </h2>
+
+          <p className="mt-8 max-w-md text-base leading-7 text-black/45">
+            Based in Banja Luka, Bosnia &amp; Herzegovina but working with
+            clients and teams from anywhere in the world.
+          </p>
+
+          <div className="mt-12 flex items-center gap-4">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-black/30">
+                Local time
+              </p>
+
+              <p className="mt-2 font-mono text-sm tabular-nums text-[#09090B]">
+                {time}
+              </p>
+            </div>
+
+            <span className="h-8 w-px bg-black/10" />
+
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-black/30">
+                Location
+              </p>
+
+              <p className="mt-2 text-sm font-medium text-[#09090B]">
+                Banja Luka
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative flex h-[620px] items-center justify-center lg:h-[700px]">
+          <Globe
+            ref={globeRef}
+            width={700}
+            height={700}
+            backgroundColor="rgba(0,0,0,0)"
+            showAtmosphere={false}
+            globeMaterial={{
+              color: "#ffffff",
+              transparent: true,
+              opacity: 0,
+            }}
+            polygonsData={countries}
+            polygonCapColor={() => "rgba(0,0,0,0)"}
+            polygonSideColor={() => "rgba(0,0,0,0)"}
+            polygonStrokeColor={() => "rgba(9,9,11,0.16)"}
+            polygonAltitude={0.001}
+            pointsData={[BOSNIA]}
+            pointLat="lat"
+            pointLng="lng"
+            pointColor={() => "#EE7B30"}
+            pointAltitude={0.04}
+            pointRadius={0.5}
+            pointLabel={() => "Banja Luka"}
+            onGlobeReady={handleGlobeReady}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
