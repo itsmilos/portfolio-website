@@ -4,27 +4,24 @@ import { FaGithub } from "react-icons/fa";
 const weeks = 52;
 const days = 7;
 
-// Vizuelni nivo aktivnosti.
-// Kasnije ovo možemo zamijeniti stvarnim GitHub podacima.
 const contributionLevels = Array.from({ length: weeks * days }, (_, index) => {
-  // više aktivnosti u novijem periodu
   const recent = index > 280;
-  const random = Math.random();
+
+  const value = (index * 47 + 13) % 100;
 
   if (recent) {
-    if (random > 0.78) return 4;
-    if (random > 0.58) return 3;
-    if (random > 0.35) return 2;
-    if (random > 0.18) return 1;
+    if (value > 78) return 4;
+    if (value > 58) return 3;
+    if (value > 35) return 2;
+    if (value > 18) return 1;
   }
 
-  if (random > 0.9) return 3;
-  if (random > 0.72) return 2;
-  if (random > 0.5) return 1;
+  if (value > 90) return 3;
+  if (value > 72) return 2;
+  if (value > 50) return 1;
 
   return 0;
 });
-
 const levels = [
   "bg-black/[0.045]",
   "bg-accent/20",
@@ -58,7 +55,6 @@ export default function GitHubActivity() {
   return (
     <section className="bg-white pb-24 sm:pb-32 lg:pb-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Section header */}
         <div className="flex flex-col gap-6 border-t border-black/[0.08] pt-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] text-[#09090B] sm:text-4xl">
@@ -85,11 +81,8 @@ export default function GitHubActivity() {
           </a>
         </div>
 
-        {/* Main GitHub card */}
         <div className="mt-10 overflow-hidden rounded-2xl border border-black/[0.08] bg-[#FAFAFA]">
-          {/* Contribution graph */}
           <div className="p-6 sm:p-8 lg:p-10">
-            {/* Top row */}
             <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-xl font-semibold tracking-tight text-[#09090B] sm:text-2xl">
@@ -108,10 +101,8 @@ export default function GitHubActivity() {
               </div>
             </div>
 
-            {/* Graph */}
             <div className="mt-8 overflow-x-auto pb-2">
               <div className="min-w-[760px]">
-                {/* Month labels */}
                 <div className="ml-8 flex justify-between pr-1 text-[10px] font-medium text-black/35">
                   {months.map((month) => (
                     <span key={month}>{month}</span>
@@ -119,14 +110,12 @@ export default function GitHubActivity() {
                 </div>
 
                 <div className="mt-3 flex">
-                  {/* Day labels */}
                   <div className="mr-3 flex w-5 flex-col justify-between py-[1px] text-[10px] font-medium text-black/35">
                     <span>Mon</span>
                     <span>Wed</span>
                     <span>Fri</span>
                   </div>
 
-                  {/* Contribution grid */}
                   <div className="flex flex-1 justify-between gap-[3px]">
                     {Array.from({ length: weeks }).map((_, weekIndex) => (
                       <div key={weekIndex} className="flex flex-col gap-[3px]">
@@ -146,7 +135,6 @@ export default function GitHubActivity() {
                   </div>
                 </div>
 
-                {/* Legend */}
                 <div className="mt-5 flex items-center justify-between pl-8">
                   <span className="text-[10px] text-black/30">
                     Learn how contributions are counted
@@ -171,10 +159,8 @@ export default function GitHubActivity() {
             </div>
           </div>
 
-          {/* Activity overview */}
           <div className="border-t border-black/[0.08]">
             <div className="grid lg:grid-cols-[1fr_1px_0.9fr]">
-              {/* Repositories */}
               <div className="p-6 sm:p-8 lg:p-10">
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-black/35">
                   Activity overview
@@ -211,32 +197,24 @@ export default function GitHubActivity() {
                 </div>
               </div>
 
-              {/* Divider */}
               <div className="hidden bg-black/[0.08] lg:block" />
 
-              {/* Activity breakdown */}
               <div className="relative p-6 sm:p-8 lg:p-10">
                 <p className="text-center text-xs font-medium text-black/35">
                   Contribution breakdown
                 </p>
 
                 <div className="relative mx-auto mt-8 h-40 max-w-sm">
-                  {/* Vertical */}
                   <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-black/10" />
 
-                  {/* Horizontal */}
                   <div className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-black/10" />
 
-                  {/* Accent vertical */}
                   <div className="absolute left-1/2 top-0 h-1/2 w-px -translate-x-1/2 bg-accent" />
 
-                  {/* Accent horizontal */}
                   <div className="absolute left-0 top-1/2 h-px w-1/2 -translate-y-1/2 bg-accent" />
 
-                  {/* Point */}
                   <div className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white ring-2 ring-accent" />
 
-                  {/* Labels */}
                   <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-5 text-[10px] text-black/40">
                     Code review
                   </span>
@@ -261,7 +239,6 @@ export default function GitHubActivity() {
           </div>
         </div>
 
-        {/* Bottom meta */}
         <div className="mt-6 flex flex-col gap-3 text-[10px] uppercase tracking-[0.16em] text-black/25 sm:flex-row sm:items-center sm:justify-between">
           <span>Open source · Development · Continuous learning</span>
 

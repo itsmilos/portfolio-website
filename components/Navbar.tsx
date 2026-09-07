@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 
 const links = [
@@ -19,13 +19,41 @@ const links = [
   },
   {
     label: "Testimonials",
-    href: "#testimonials",
-  },
-  {
-    label: "Contact",
-    href: "#contact",
+    href: "#feedback",
   },
 ];
+
+function MenuButton({
+  isOpen,
+  onClick,
+}: {
+  isOpen: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={isOpen ? "Close menu" : "Open menu"}
+      aria-expanded={isOpen}
+      className="flex h-12 w-12 items-center justify-center rounded-full"
+    >
+      <span className="relative flex h-5 w-5 flex-col justify-center gap-1.5">
+        <motion.span
+          animate={isOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
+          transition={{ duration: 0.25 }}
+          className="block h-[2px] w-5 rounded-full bg-accent"
+        />
+
+        <motion.span
+          animate={isOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
+          transition={{ duration: 0.25 }}
+          className="block h-[2px] w-5 rounded-full bg-accent"
+        />
+      </span>
+    </button>
+  );
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,48 +68,20 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="relative z-50 flex items-center justify-between px-6 py-5 lg:px-8">
+      <nav className="relative z-50 flex w-full items-center px-6 py-7 sm:px-8 lg:px-10 lg:py-10">
         <a
           href="/"
           onClick={closeMenu}
-          className="text-sm font-medium tracking-tight text-surface-900 dark:text-surface-100"
+          className="text-sm font-medium tracking-tight text-black"
         >
           <span className="text-accent">&lt;</span>
           milos.dev
           <span className="text-accent">/&gt;</span>
         </a>
 
-        <button
-          type="button"
-          onClick={toggleMenu}
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isOpen}
-          className="group flex h-10 w-10 items-center justify-center rounded-full border border-black/10 text-surface-900 transition-all duration-300 hover:border-accent/40 hover:bg-accent/5 hover:text-accent dark:border-white/10 dark:text-surface-100 dark:hover:border-accent/40 dark:hover:bg-accent/5 dark:hover:text-accent"
-        >
-          <AnimatePresence mode="wait" initial={false}>
-            {isOpen ? (
-              <motion.div
-                key="close"
-                initial={{ opacity: 0, rotate: -90, scale: 0.7 }}
-                animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                exit={{ opacity: 0, rotate: 90, scale: 0.7 }}
-                transition={{ duration: 0.2 }}
-              >
-                <X className="h-5 w-5" strokeWidth={1.8} />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="menu"
-                initial={{ opacity: 0, rotate: 90, scale: 0.7 }}
-                animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                exit={{ opacity: 0, rotate: -90, scale: 0.7 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Menu className="h-5 w-5" strokeWidth={1.8} />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </button>
+        <div className="fixed right-6 top-7 z-[60] sm:right-8 sm:top-8 lg:right-10 lg:top-10">
+          <MenuButton isOpen={isOpen} onClick={toggleMenu} />
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -93,14 +93,14 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
             className="fixed inset-0 z-40 bg-white dark:bg-surface-950"
           >
-            <div className="flex h-full flex-col px-6 pb-8 pt-28 lg:px-8">
-              <div className="mb-10 flex items-center justify-between border-b border-black/10 pb-5 dark:border-white/10">
-                <span className="text-xs font-medium uppercase tracking-[0.2em] text-black/40 dark:text-white/40">
+            <div className="flex h-full flex-col px-6 pb-8 pt-28 sm:px-8 lg:px-10 lg:pt-32">
+              <div className="mb-8 flex items-center justify-between border-b border-black/10 pb-5 dark:border-white/10 sm:mb-10">
+                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-black/40 dark:text-white/40">
                   Navigation
                 </span>
 
-                <span className="text-xs text-black/30 dark:text-white/30">
-                  01 — 05
+                <span className="text-[10px] text-black/30 dark:text-white/30">
+                  01 — 04
                 </span>
               </div>
 
@@ -120,7 +120,7 @@ export default function Navbar() {
                     }}
                     className="group flex items-center justify-between border-b border-black/[0.08] py-5 dark:border-white/[0.08] sm:py-6"
                   >
-                    <div className="flex items-baseline gap-5">
+                    <div className="flex items-baseline gap-4 sm:gap-5">
                       <span className="text-[10px] font-medium text-accent">
                         0{index + 1}
                       </span>
@@ -130,7 +130,7 @@ export default function Navbar() {
                       </span>
                     </div>
 
-                    <ArrowUpRight className="h-6 w-6 text-black/20 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent dark:text-white/20" />
+                    <ArrowUpRight className="h-5 w-5 text-black/20 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent dark:text-white/20 sm:h-6 sm:w-6" />
                   </motion.a>
                 ))}
               </nav>

@@ -25,9 +25,7 @@ export default function CTA() {
   return (
     <section className="relative overflow-hidden bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* CTA */}
         <div className="flex min-h-[650px] flex-col items-center justify-center text-center">
-          {/* Eyebrow */}
           <div className="mb-8 flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-accent/60" />
 
@@ -38,20 +36,17 @@ export default function CTA() {
             <span className="h-px w-8 bg-accent/60" />
           </div>
 
-          {/* Heading */}
           <h2 className="text-5xl font-semibold tracking-[-0.05em] text-ac] sm:text-6xl lg:text-8xl">
             Have a project
             <br />
             <span className="text-accent">in mind?</span>
           </h2>
 
-          {/* Description */}
           <p className="mx-auto mt-8 max-w-xl text-base leading-7 text-black/45 sm:text-lg">
             Have an idea, a project, or just want to talk? I&apos;m always open
             to new opportunities and interesting ideas.
           </p>
 
-          {/* Email CTA */}
           <a
             href="mailto:hello@itsmilos.dev"
             className="group mt-10 inline-flex items-center gap-4 rounded-full border border-black/10 bg-black/[0.025] px-6 py-4 transition-all duration-300 hover:border-accent/40 hover:bg-accent/[0.06]"
@@ -68,10 +63,8 @@ export default function CTA() {
           </a>
         </div>
 
-        {/* Footer */}
         <footer className="border-t border-black/[0.08]">
           <div className="flex flex-col gap-8 py-8 lg:flex-row lg:items-center lg:justify-between">
-            {/* Brand */}
             <div>
               <span className="text-[#09090B]">
                 <span className="text-accent">&lt;</span>
@@ -82,7 +75,6 @@ export default function CTA() {
               <p className="mt-1 text-xs text-black/35">Full-Stack Developer</p>
             </div>
 
-            {/* Social Links */}
             <nav className="flex flex-wrap items-center gap-2">
               {links.map((link) => {
                 const Icon = link.icon;
@@ -110,7 +102,6 @@ export default function CTA() {
             </nav>
           </div>
 
-          {/* Bottom */}
           <div className="flex flex-col gap-3 border-t border-black/[0.06] py-5 text-[10px] uppercase tracking-[0.18em] text-black/25 sm:flex-row sm:items-center sm:justify-between">
             <span>© {new Date().getFullYear()} milos.dev</span>
 

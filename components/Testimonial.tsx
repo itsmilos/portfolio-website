@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export default function Testimonial() {
   return (
     <section
@@ -14,8 +16,11 @@ export default function Testimonial() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
-          className="mb-16"
+          transition={{
+            duration: 0.7,
+            ease,
+          }}
+          className="mb-14"
         >
           <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
             <span>06</span>
@@ -24,24 +29,67 @@ export default function Testimonial() {
           </div>
         </motion.div>
 
+        {/* Heading */}
+        <motion.h1
+          initial={{
+            opacity: 0,
+            x: -60,
+            filter: "blur(6px)",
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            filter: "blur(0px)",
+          }}
+          viewport={{
+            once: true,
+            amount: 0.3,
+          }}
+          transition={{
+            duration: 0.9,
+            ease,
+          }}
+          className="mb-20 max-w-4xl text-[clamp(4rem,8vw,8rem)] font-medium leading-[0.85] tracking-[-0.065em] sm:mb-24"
+        >
+          Built on
+          <br />
+          <span className="text-accent">trust.</span>
+        </motion.h1>
+
         <div className="grid items-stretch gap-10 lg:grid-cols-[1.65fr_0.85fr]">
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            initial={{
+              opacity: 0,
+              x: -40,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
             transition={{
               duration: 0.9,
-              ease: [0.22, 1, 0.36, 1],
+              ease,
             }}
             className="overflow-hidden"
           >
             <motion.img
-              initial={{ scale: 1.04 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
+              initial={{
+                scale: 1.04,
+              }}
+              whileInView={{
+                scale: 1,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.2,
+              }}
               transition={{
                 duration: 1.2,
-                ease: [0.22, 1, 0.36, 1],
+                ease,
               }}
               src="/image.png"
               alt="Client project"
@@ -50,13 +98,22 @@ export default function Testimonial() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            initial={{
+              opacity: 0,
+              x: 40,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
             transition={{
               duration: 0.9,
               delay: 0.1,
-              ease: [0.22, 1, 0.36, 1],
+              ease,
             }}
             className="relative flex min-h-[520px] flex-col justify-between overflow-hidden bg-[#09090B] p-8 text-white md:min-h-[650px] md:p-10 lg:p-12"
           >
@@ -71,12 +128,21 @@ export default function Testimonial() {
                 {[0, 1, 2, 3, 4].map((star) => (
                   <motion.span
                     key={star}
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    initial={{
+                      opacity: 0,
+                      y: 8,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{
+                      once: true,
+                    }}
                     transition={{
                       duration: 0.35,
                       delay: 0.35 + star * 0.08,
+                      ease,
                     }}
                     className="text-lg text-accent"
                   >
@@ -86,10 +152,22 @@ export default function Testimonial() {
               </div>
 
               <motion.blockquote
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.65 }}
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.65,
+                  ease,
+                }}
                 className="mt-10 text-[clamp(2rem,3vw,3rem)] font-medium italic leading-[1.1] tracking-[-0.04em]"
               >
                 “Nice guy. Would definitely work with him again.”
@@ -97,10 +175,22 @@ export default function Testimonial() {
             </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.85 }}
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: 0.85,
+                ease,
+              }}
               className="relative z-10 flex items-center gap-4 border-t border-white/10 pt-6"
             >
               <div className="relative h-12 w-12 overflow-hidden rounded-full bg-white/10">
