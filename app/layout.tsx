@@ -14,7 +14,7 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Milos — Full-Stack Web Developer",
+  title: "Milos - Full Stack Web Developer",
   description:
     "Full-stack web developer building modern web applications and digital products.",
 };

@@ -18,61 +18,74 @@ export default function Resume() {
           transition={{ duration: 0.7 }}
           className="relative overflow-hidden rounded-[2rem] border border-white/10 px-8 py-16 md:px-14 md:py-20 lg:px-20 lg:py-24"
         >
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[#09090B]"
-          />
+          <div className="pointer-events-none absolute inset-0 bg-[#09090B]" />
 
-          <motion.div
-            aria-hidden
-            className="pointer-events-none absolute -inset-[15%]"
-            animate={{
-              scale: [1, 1.08, 1],
-              opacity: [0.25, 0.5, 0.25],
-              rotate: [0, 2, 0],
-            }}
-            transition={{
-              duration: 7,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            style={{
-              background: `
-                radial-gradient(
-                  ellipse 55% 70% at 20% 50%,
-                  color-mix(in srgb, var(--color-accent) 32%, transparent),
-                  transparent 65%
-                ),
-                radial-gradient(
-                  ellipse 45% 55% at 75% 50%,
-                  rgba(255,255,255,0.035),
-                  transparent 70%
-                )
-              `,
-              filter: "blur(45px)",
-            }}
-          />
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            <motion.div
+              aria-hidden
+              className="absolute -left-[20%] top-[10%] h-[90%] w-[65%] rounded-full"
+              animate={{
+                x: ["0%", "18%", "-5%", "0%"],
+                y: ["0%", "-8%", "10%", "0%"],
+                scale: [0.85, 1.2, 0.95, 0.85],
+                opacity: [0.2, 0.65, 0.3, 0.2],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              style={{
+                background:
+                  "radial-gradient(circle, color-mix(in srgb, var(--color-accent) 45%, transparent), transparent 68%)",
+                filter: "blur(50px)",
+              }}
+            />
 
-          <motion.div
-            aria-hidden
-            className="pointer-events-none absolute -left-[15%] top-1/2 h-[120%] w-[60%] -translate-y-1/2 rounded-full"
-            animate={{
-              scale: [0.95, 1.12, 0.95],
-              opacity: [0.12, 0.28, 0.12],
-            }}
-            transition={{
-              duration: 9,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            style={{
-              background:
-                "radial-gradient(circle, color-mix(in srgb, var(--color-accent) 30%, transparent), transparent 70%)",
-              filter: "blur(55px)",
-            }}
-          />
+            <motion.div
+              aria-hidden
+              className="absolute -right-[15%] top-[20%] h-[80%] w-[55%] rounded-full"
+              animate={{
+                x: ["0%", "-15%", "8%", "0%"],
+                y: ["0%", "10%", "-6%", "0%"],
+                scale: [1, 0.8, 1.15, 1],
+                opacity: [0.08, 0.3, 0.12, 0.08],
+              }}
+              transition={{
+                duration: 7,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
+              style={{
+                background:
+                  "radial-gradient(circle, color-mix(in srgb, var(--color-accent) 30%, transparent), transparent 70%)",
+                filter: "blur(70px)",
+              }}
+            />
 
-          <div className="pointer-events-none absolute inset-0 opacity-60">
+            <motion.div
+              aria-hidden
+              className="absolute left-[20%] top-[15%] h-[70%] w-[50%] rounded-full"
+              animate={{
+                scale: [0.7, 1.25, 0.75, 0.7],
+                opacity: [0.05, 0.22, 0.07, 0.05],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5,
+              }}
+              style={{
+                background:
+                  "radial-gradient(circle, color-mix(in srgb, var(--color-accent) 35%, transparent), transparent 65%)",
+                filter: "blur(80px)",
+              }}
+            />
+          </div>
+
+          <div className="pointer-events-none absolute inset-0 opacity-40">
             <Image
               src="/texture.avif"
               alt=""
@@ -86,24 +99,8 @@ export default function Resume() {
             aria-hidden
             className="pointer-events-none absolute inset-0"
             style={{
-              background: `
-                linear-gradient(
-                  90deg,
-                  transparent 0%,
-                  transparent 45%,
-                  rgba(9,9,11,0.45) 75%,
-                  #09090B 100%
-                )
-              `,
-            }}
-          />
-
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0"
-            style={{
               background:
-                "radial-gradient(ellipse at center, transparent 35%, rgba(9,9,11,0.65) 100%)",
+                "radial-gradient(ellipse at center, transparent 45%, rgba(9,9,11,0.55) 100%)",
             }}
           />
 
@@ -134,7 +131,7 @@ export default function Resume() {
               download
               whileHover={{ y: -4 }}
               whileTap={{ scale: 0.97 }}
-              className="group flex h-24 w-24 shrink-0 items-center justify-center rounded-full border-2 border-[color:var(--color-accent)] bg-white text-[#09090B] transition-colors duration-500 hover:bg-[color:var(--color-accent)] hover:text-white md:h-32 md:w-32"
+              className="group flex h-24 w-24 shrink-0 items-center justify-center rounded-full border-2 border-white bg-white text-[#09090B] transition-colors duration-500 hover:bg-[color:var(--color-accent)] hover:text-white md:h-32 md:w-32"
               aria-label="Download resume"
             >
               <div className="flex flex-col items-center gap-2">
