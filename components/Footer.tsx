@@ -6,12 +6,12 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 const links = [
   {
     label: "GitHub",
-    href: "https://github.com/yourusername",
+    href: "https://github.com/itsmilos",
     icon: FaGithub,
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/yourusername",
+    href: "https://www.linkedin.com/in/milos-lazendic-b45b3841a/",
     icon: FaLinkedinIn,
   },
   {
@@ -21,7 +21,7 @@ const links = [
   },
 ];
 
-export default function CTA() {
+export default function Footer() {
   return (
     <section className="relative overflow-hidden bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

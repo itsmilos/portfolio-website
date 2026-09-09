@@ -23,13 +23,12 @@ export default function Testimonial() {
           className="mb-14"
         >
           <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
-            <span>06</span>
+            <span>07</span>
             <span className="h-px w-8 bg-accent" />
             <span>Client Feedback</span>
           </div>
         </motion.div>
 
-        {/* Heading */}
         <motion.h1
           initial={{
             opacity: 0,
