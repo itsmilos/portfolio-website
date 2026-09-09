@@ -5,34 +5,41 @@ import { motion } from "framer-motion";
 const projects = [
   {
     number: "01",
-    title: "Lumé Beauty Studio",
-    category: "Booking Platform",
+    title: "Weston Renn Personal Website",
+    category: "Author & Digital Product",
     description:
-      "A custom booking experience designed to make appointment scheduling simple and intuitive.",
+      "A cinematic digital experience crafted around an author brand, with a focused journey from story discovery to e-book purchase.",
+    image: "/westonrenn.webp",
+    url: "westonrenn.com",
     className: "md:col-span-2",
   },
   {
     number: "02",
-    title: "BIKEHUB",
-    category: "E-Commerce",
-    description:
-      "A modern e-commerce experience for bikes, components and accessories.",
+    title: "Vervida Skincare Brand Website",
+    category: "E-Commerce & Branding",
+    description: "A modern e-commerce experience for skincare products.",
+    image: "/vervida.webp",
+    url: "vervida.com",
     className: "md:col-span-1",
   },
   {
     number: "03",
-    title: "Auction House",
-    category: "Full-Stack Application",
+    title: "Lumé Beauty Studio",
+    category: "Booking Platform",
     description:
-      "A full-stack auction platform built around real-time bidding and user interaction.",
+      "A custom booking experience designed to make appointment scheduling simple and intuitive.",
+    image: "/lume.webp",
+    url: "lume-beauty.com",
     className: "md:col-span-1",
   },
   {
     number: "04",
-    title: "TacticalStore",
-    category: "E-Commerce",
+    title: "GEMORA",
+    category: "Full-Stack Application",
     description:
-      "A product-focused e-commerce experience with a custom storefront and backend.",
+      "A full-stack auction platform built around real-time bidding and user interaction.",
+    image: "/gemora.webp",
+    url: "gemora.com",
     className: "md:col-span-2",
   },
 ];
@@ -47,7 +54,9 @@ export default function SelectedWork() {
         <div className="mb-24 max-w-5xl">
           <div className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
             <span>04</span>
+
             <span className="h-px w-8 bg-accent" />
+
             <span>Selected Work</span>
           </div>
 
@@ -61,7 +70,7 @@ export default function SelectedWork() {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-x-6 gap-y-20 md:grid-cols-3">
           {projects.map((project, index) => (
             <ProjectCard key={project.number} project={project} index={index} />
           ))}
@@ -80,6 +89,8 @@ function ProjectCard({
     title: string;
     category: string;
     description: string;
+    image: string;
+    url: string;
     className: string;
   };
   index: number;
@@ -95,28 +106,56 @@ function ProjectCard({
       }}
       className={`group ${project.className}`}
     >
-      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-[#f4f4f2]">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-black/20">
-              Project Preview
-            </span>
-
-            <div className="mx-auto mt-4 h-px w-10 bg-black/10" />
-          </div>
-        </div>
-
-        <div className="absolute left-5 top-5 font-mono text-xs tracking-[0.15em] text-black/30">
+      <div className="relative overflow-hidden rounded-2xl bg-[#f1f1ef] px-5 pb-0 pt-10 md:px-8 md:pt-14">
+        <div className="absolute left-5 top-5 z-20 font-mono text-xs tracking-[0.15em] text-black/30 md:left-7 md:top-7">
           {project.number}
         </div>
 
-        <div className="absolute inset-0 bg-black/[0.03] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="relative mx-auto w-full max-w-[900px] translate-y-1 transition-transform duration-700 ease-out group-hover:-translate-y-1">
+          <div className="relative overflow-hidden rounded-t-[8px] border-[5px] border-[#191919] bg-[#191919] shadow-[0_20px_50px_rgba(0,0,0,0.18)]">
+            <div className="absolute left-1/2 top-0 z-30 h-[5px] w-16 -translate-x-1/2 rounded-b-md bg-[#191919]" />
 
-        <div className="absolute bottom-5 right-5 flex h-10 w-10 translate-y-2 items-center justify-center rounded-full border border-black/10 bg-white opacity-0 shadow-sm transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+            <div className="relative aspect-[16/10] overflow-hidden bg-white">
+              <div className="absolute left-0 right-0 top-0 z-20 flex h-9 items-center border-b border-black/10 bg-[#f7f7f7] px-3">
+                <div className="flex items-center gap-1.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+                </div>
+
+                <div className="absolute left-1/2 flex h-5 w-[52%] -translate-x-1/2 items-center justify-center rounded-md bg-black/[0.055] px-3">
+                  <span className="truncate font-mono text-[8px] text-black/35 md:text-[9px]">
+                    {project.url}
+                  </span>
+                </div>
+              </div>
+
+              <div className="absolute inset-x-0 bottom-0 top-9 overflow-hidden bg-white">
+                <img
+                  src={project.image}
+                  alt={`${project.title} website preview`}
+                  className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                />
+
+                <div className="pointer-events-none absolute inset-0 bg-black/[0.02]" />
+              </div>
+            </div>
+          </div>
+
+          <div className="relative mx-auto h-3 w-[104%] -translate-x-[2%] rounded-b-[10px] bg-gradient-to-b from-[#d8d8d8] to-[#a9a9a9] shadow-[0_12px_20px_rgba(0,0,0,0.12)]">
+            <div className="absolute left-1/2 top-0 h-1 w-20 -translate-x-1/2 rounded-b-full bg-[#8d8d8d]" />
+          </div>
+
+          <div className="mx-auto h-1 w-[88%] rounded-full bg-black/10 blur-[2px]" />
+        </div>
+
+        <div className="absolute bottom-5 right-5 z-30 flex h-11 w-11 translate-y-2 items-center justify-center rounded-full border border-black/10 bg-white opacity-0 shadow-lg transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
           <span className="text-lg transition-transform duration-300 group-hover:translate-x-0.5">
             ↗
           </span>
         </div>
+
+        <div className="pointer-events-none absolute inset-0 bg-black/[0.025] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
       </div>
 
       <div className="mt-5">
