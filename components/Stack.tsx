@@ -2,6 +2,10 @@
 
 import { motion } from "framer-motion";
 import {
+  siHtml5,
+  siCss,
+  siJavascript,
+  siBootstrap,
   siReact,
   siNextdotjs,
   siTypescript,
@@ -28,6 +32,26 @@ const stack = [
     description:
       "Interfaces built to feel fast, responsive and natural across every screen.",
     technologies: [
+      {
+        name: "HTML",
+        icon: siHtml5,
+        color: "#E34F26",
+      },
+      {
+        name: "CSS",
+        icon: siCss,
+        color: "#1572B6",
+      },
+      {
+        name: "JavaScript",
+        icon: siJavascript,
+        color: "#F7DF1E",
+      },
+      {
+        name: "Bootstrap",
+        icon: siBootstrap,
+        color: "#7952B3",
+      },
       {
         name: "React",
         icon: siReact,
