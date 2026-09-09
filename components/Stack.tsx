@@ -20,9 +20,12 @@ import {
   siVercel,
   siRailway,
   siFigma,
+  siStripe,
+  siSupabase,
+  siSocketdotio,
 } from "simple-icons/icons";
 
-import { Code2, Database, Layers3 } from "lucide-react";
+import { Code2, Database, Plug, Layers3 } from "lucide-react";
 
 const stack = [
   {
@@ -60,7 +63,7 @@ const stack = [
       {
         name: "Next.js",
         icon: siNextdotjs,
-        color: "#FFFFFF",
+        color: "#09090B",
       },
       {
         name: "TypeScript",
@@ -89,7 +92,7 @@ const stack = [
       {
         name: "Express",
         icon: siExpress,
-        color: "#FFFFFF",
+        color: "#09090B",
       },
       {
         name: "MongoDB",
@@ -110,6 +113,42 @@ const stack = [
   },
   {
     number: "03",
+    title: "Services & Integrations",
+    icon: Plug,
+    description:
+      "Third-party services and integrations that turn applications into complete products.",
+    technologies: [
+      {
+        name: "Stripe",
+        icon: siStripe,
+        color: "#635BFF",
+      },
+      {
+        name: "Supabase",
+        icon: siSupabase,
+        color: "#3ECF8E",
+      },
+      {
+        name: "Socket.IO",
+        icon: siSocketdotio,
+        color: "#09090B",
+      },
+      {
+        name: "Medusa",
+        icon: null,
+        letter: "M",
+        color: "#09090B",
+      },
+      {
+        name: "Polar",
+        icon: null,
+        letter: "P",
+        color: "#09090B",
+      },
+    ],
+  },
+  {
+    number: "04",
     title: "Tools & Deployment",
     icon: Layers3,
     description:
@@ -128,7 +167,7 @@ const stack = [
       {
         name: "Vercel",
         icon: siVercel,
-        color: "#FFFFFF",
+        color: "#09090B",
       },
       {
         name: "Railway",
@@ -180,7 +219,7 @@ export default function StackPage() {
                 duration: 0.7,
                 delay: index * 0.08,
               }}
-              className="group grid gap-8 border-b border-black/10 py-12 md:grid-cols-[80px_220px_1fr] md:items-start md:gap-12 md:py-16"
+              className="group grid gap-8 border-b border-black/10 py-12 md:grid-cols-[80px_280px_1fr] md:items-start md:gap-12 md:py-16"
             >
               <span className="font-mono text-xs tracking-[0.15em] text-black/30">
                 {item.number}
@@ -209,21 +248,28 @@ export default function StackPage() {
                       key={technology.name}
                       className="group/tech flex cursor-default items-center gap-2.5 rounded-full border border-black/10 px-3.5 py-2 transition-all duration-300 hover:border-black/20 hover:bg-black/[0.02]"
                     >
-                      <svg
-                        viewBox="0 0 24 24"
-                        className="h-[17px] w-[17px] fill-current transition-all duration-300 group-hover/tech:scale-110"
-                        style={{
-                          color:
-                            technology.name === "Next.js" ||
-                            technology.name === "Express" ||
-                            technology.name === "Vercel"
-                              ? "#09090B"
-                              : technology.color,
-                        }}
-                        aria-hidden="true"
-                      >
-                        <path d={technology.icon.path} />
-                      </svg>
+                      {technology.icon ? (
+                        <svg
+                          viewBox="0 0 24 24"
+                          className="h-[17px] w-[17px] fill-current transition-all duration-300 group-hover/tech:scale-110"
+                          style={{
+                            color: technology.color,
+                          }}
+                          aria-hidden="true"
+                        >
+                          <path d={technology.icon.path} />
+                        </svg>
+                      ) : (
+                        <span
+                          className="flex h-[17px] w-[17px] items-center justify-center text-[11px] font-semibold transition-transform duration-300 group-hover/tech:scale-110"
+                          style={{
+                            color: technology.color,
+                          }}
+                          aria-hidden="true"
+                        >
+                          {technology.letter}
+                        </span>
+                      )}
 
                       <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-black/50 transition-colors duration-300 group-hover/tech:text-black">
                         {technology.name}
