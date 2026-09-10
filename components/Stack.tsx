@@ -25,7 +25,7 @@ import {
   siSocketdotio,
 } from "simple-icons/icons";
 
-import { Code2, Database, Plug, Layers3 } from "lucide-react";
+import { Code2, Database, Plug, Layers3, Search } from "lucide-react";
 
 const stack = [
   {
@@ -178,6 +178,57 @@ const stack = [
         name: "Figma",
         icon: siFigma,
         color: "#F24E1E",
+      },
+    ],
+  },
+  {
+    number: "05",
+    title: "SEO & Performance",
+    icon: Search,
+    description:
+      "Technical foundations that help websites load faster, rank better and reach the right audience.",
+    technologies: [
+      {
+        name: "Technical SEO",
+        icon: null,
+        letter: "S",
+        color: "#EE7B30",
+      },
+      {
+        name: "On-page SEO",
+        icon: null,
+        letter: "O",
+        color: "#EE7B30",
+      },
+      {
+        name: "Metadata",
+        icon: null,
+        letter: "M",
+        color: "#EE7B30",
+      },
+      {
+        name: "Sitemaps",
+        icon: null,
+        letter: "S",
+        color: "#EE7B30",
+      },
+      {
+        name: "Schema.org",
+        icon: null,
+        letter: "S",
+        color: "#EE7B30",
+      },
+      {
+        name: "Core Web Vitals",
+        icon: null,
+        letter: "C",
+        color: "#EE7B30",
+      },
+      {
+        name: "Search Console",
+        icon: null,
+        letter: "G",
+        color: "#EE7B30",
       },
     ],
   },
