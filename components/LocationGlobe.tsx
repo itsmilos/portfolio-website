@@ -16,19 +16,27 @@ const BOSNIA = {
 export default function LocationGlobe() {
   const globeRef = useRef<GlobeMethods | undefined>(undefined);
 
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState<any[]>([]);
   const [time, setTime] = useState("");
   const [globeSize, setGlobeSize] = useState(700);
 
   useEffect(() => {
+    let mounted = true;
+
     fetch("/data/countries.geojson")
       .then((res) => res.json())
       .then((data) => {
-        setCountries(data.features);
+        if (mounted) {
+          setCountries(data.features);
+        }
       })
       .catch((error) => {
         console.error("Failed to load countries:", error);
       });
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -48,7 +56,9 @@ export default function LocationGlobe() {
 
     window.addEventListener("resize", updateSize);
 
-    return () => window.removeEventListener("resize", updateSize);
+    return () => {
+      window.removeEventListener("resize", updateSize);
+    };
   }, []);
 
   useEffect(() => {
@@ -68,13 +78,17 @@ export default function LocationGlobe() {
 
     const interval = setInterval(updateTime, 1000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   const handleGlobeReady = () => {
-    if (!globeRef.current) return;
+    const globe = globeRef.current;
 
-    globeRef.current.pointOfView(
+    if (!globe) return;
+
+    globe.pointOfView(
       {
         lat: BOSNIA.lat,
         lng: BOSNIA.lng,
@@ -83,7 +97,7 @@ export default function LocationGlobe() {
       0,
     );
 
-    const controls = globeRef.current.controls();
+    const controls = globe.controls();
 
     controls.autoRotate = true;
     controls.autoRotateSpeed = 0.18;
@@ -144,14 +158,9 @@ export default function LocationGlobe() {
             height={globeSize}
             backgroundColor="rgba(0,0,0,0)"
             showAtmosphere={false}
-            globeMaterial={{
-              color: "#ffffff",
-              transparent: true,
-              opacity: 0,
-            }}
             polygonsData={countries}
-            polygonCapColor={() => "rgba(0,0,0,0)"}
-            polygonSideColor={() => "rgba(0,0,0,0)"}
+            polygonCapColor={() => "transparent"}
+            polygonSideColor={() => "transparent"}
             polygonStrokeColor={() => "rgba(9,9,11,0.16)"}
             polygonAltitude={0.001}
             pointsData={[BOSNIA]}

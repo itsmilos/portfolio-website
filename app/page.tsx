@@ -17,7 +17,6 @@ export default function Home() {
       <StackPage />
       <Resume />
       <Testimonial />
-      <Footer />
     </div>
   );
 }
