@@ -18,6 +18,7 @@ export default function LocationGlobe() {
 
   const [countries, setCountries] = useState([]);
   const [time, setTime] = useState("");
+  const [globeSize, setGlobeSize] = useState(700);
 
   useEffect(() => {
     fetch("/data/countries.geojson")
@@ -28,6 +29,26 @@ export default function LocationGlobe() {
       .catch((error) => {
         console.error("Failed to load countries:", error);
       });
+  }, []);
+
+  useEffect(() => {
+    const updateSize = () => {
+      if (window.innerWidth < 640) {
+        setGlobeSize(430);
+      } else if (window.innerWidth < 1024) {
+        setGlobeSize(520);
+      } else if (window.innerWidth < 1536) {
+        setGlobeSize(700);
+      } else {
+        setGlobeSize(750);
+      }
+    };
+
+    updateSize();
+
+    window.addEventListener("resize", updateSize);
+
+    return () => window.removeEventListener("resize", updateSize);
   }, []);
 
   useEffect(() => {
@@ -72,55 +93,55 @@ export default function LocationGlobe() {
   };
 
   return (
-    <section className="relative mt-20 overflow-hidden border-black/[0.08]">
-      <div className="mx-auto grid min-h-[620px] max-w-7xl items-center px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-        <div className="relative z-10 py-20 lg:py-0">
+    <section className="relative mt-12 overflow-hidden border-black/[0.08] sm:mt-16 lg:mt-20">
+      <div className="mx-auto grid max-w-7xl items-center px-6 sm:px-8 lg:min-h-[620px] lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+        <div className="relative z-10 py-16 sm:py-20 lg:py-0">
           <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-black/40">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
             Location
           </div>
 
-          <h2 className="mt-8 max-w-xl text-5xl font-semibold tracking-[-0.05em] sm:text-6xl lg:text-7xl">
+          <h2 className="mt-7 max-w-xl text-5xl font-semibold tracking-[-0.055em] sm:mt-8 sm:text-6xl lg:text-7xl">
             Available
             <br />
             <span className="text-accent">globally.</span>
           </h2>
 
-          <p className="mt-8 max-w-md text-base leading-7 text-black/45">
+          <p className="mt-6 max-w-md text-sm leading-6 text-black/45 sm:mt-8 sm:text-base sm:leading-7">
             Based in Banja Luka, Bosnia &amp; Herzegovina but working with
             clients and teams from anywhere in the world.
           </p>
 
-          <div className="mt-12 flex items-center gap-4">
+          <div className="mt-9 flex items-center gap-4 sm:mt-12">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-black/30">
+              <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-black/30 sm:text-[10px]">
                 Local time
               </p>
 
-              <p className="mt-2 font-mono text-sm tabular-nums text-[#09090B]">
+              <p className="mt-1.5 font-mono text-xs tabular-nums text-[#09090B] sm:mt-2 sm:text-sm">
                 {time}
               </p>
             </div>
 
-            <span className="h-8 w-px bg-black/10" />
+            <span className="h-7 w-px bg-black/10 sm:h-8" />
 
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-black/30">
+              <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-black/30 sm:text-[10px]">
                 Location
               </p>
 
-              <p className="mt-2 text-sm font-medium text-[#09090B]">
+              <p className="mt-1.5 text-xs font-medium text-[#09090B] sm:mt-2 sm:text-sm">
                 Banja Luka
               </p>
             </div>
           </div>
         </div>
 
-        <div className="relative flex h-[620px] items-center justify-center lg:h-[700px]">
+        <div className="relative flex h-[430px] items-center justify-center sm:h-[540px] lg:h-[700px]">
           <Globe
             ref={globeRef}
-            width={700}
-            height={700}
+            width={globeSize}
+            height={globeSize}
             backgroundColor="rgba(0,0,0,0)"
             showAtmosphere={false}
             globeMaterial={{
