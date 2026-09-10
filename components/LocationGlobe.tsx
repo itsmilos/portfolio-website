@@ -1,7 +1,8 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import * as THREE from "three";
 import type { GlobeMethods } from "react-globe.gl";
 
 const Globe = dynamic(() => import("react-globe.gl"), {
@@ -19,6 +20,15 @@ export default function LocationGlobe() {
   const [countries, setCountries] = useState<any[]>([]);
   const [time, setTime] = useState("");
   const [globeSize, setGlobeSize] = useState(700);
+
+  const globeMaterial = useMemo(
+    () =>
+      new THREE.MeshBasicMaterial({
+        transparent: true,
+        opacity: 0,
+      }),
+    [],
+  );
 
   useEffect(() => {
     let mounted = true;
@@ -158,10 +168,11 @@ export default function LocationGlobe() {
             height={globeSize}
             backgroundColor="rgba(0,0,0,0)"
             showAtmosphere={false}
+            globeMaterial={globeMaterial}
             polygonsData={countries}
-            polygonCapColor={() => "transparent"}
-            polygonSideColor={() => "transparent"}
-            polygonStrokeColor={() => "rgba(9,9,11,0.16)"}
+            polygonCapColor={() => "rgba(0,0,0,0)"}
+            polygonSideColor={() => "rgba(0,0,0,0)"}
+            polygonStrokeColor={() => "rgba(140,140,140,0.5)"}
             polygonAltitude={0.001}
             pointsData={[BOSNIA]}
             pointLat="lat"

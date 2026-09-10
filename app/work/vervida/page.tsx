@@ -3,12 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  siFigma,
-  siNextdotjs,
-  siTypescript,
-  siTailwindcss,
-} from "simple-icons/icons";
+import { siFigma } from "simple-icons/icons";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -24,25 +19,15 @@ const fadeUp = {
   },
 };
 
-const technologies = [
+const tools = [
   {
-    name: "Next.js",
-    icon: siNextdotjs,
-    color: "#000000",
-  },
-  {
-    name: "TypeScript",
-    icon: siTypescript,
-    color: "#3178C6",
-  },
-  {
-    name: "Tailwind CSS",
-    icon: siTailwindcss,
-    color: "#06B6D4",
+    name: "Figma",
+    icon: siFigma,
+    color: "#F24E1E",
   },
 ];
 
-export default function WestonRennPage() {
+export default function VervidaPage() {
   return (
     <main className="bg-white text-[#09090B]">
       <section className="px-6 pb-24 pt-32 md:px-10 lg:px-16 lg:pb-32 lg:pt-40">
@@ -57,32 +42,33 @@ export default function WestonRennPage() {
             <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
               <div>
                 <h1 className="max-w-5xl text-[clamp(3.5rem,8vw,8rem)] font-medium leading-[0.88] tracking-[-0.065em]">
-                  Weston
+                  Vervida
                   <br />
-                  Renn<span className="text-accent">.</span>
+                  Skincare<span className="text-accent">.</span>
                 </h1>
               </div>
 
               <div className="max-w-md lg:pb-2">
                 <p className="text-lg leading-8 text-black/50">
-                  A cinematic author website designed and developed around
-                  storytelling, personal branding, and digital product sales.
+                  A refined skincare e-commerce interface designed to combine
+                  visual elegance with a clear and intuitive shopping
+                  experience.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-2">
-                  {technologies.map((technology) => (
+                  {tools.map((tool) => (
                     <span
-                      key={technology.name}
+                      key={tool.name}
                       className="flex items-center gap-2 rounded-full border border-black/10 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-black/50"
                     >
                       <svg
                         viewBox="0 0 24 24"
                         className="h-3.5 w-3.5 fill-current"
-                        style={{ color: technology.color }}
+                        style={{ color: tool.color }}
                       >
-                        <path d={technology.icon.path} />
+                        <path d={tool.icon.path} />
                       </svg>
-                      {technology.name}
+                      {tool.name}
                     </span>
                   ))}
                 </div>
@@ -96,12 +82,7 @@ export default function WestonRennPage() {
             transition={{ duration: 1, delay: 0.15, ease }}
             className="mt-20"
           >
-            <a
-              href="https://westonrenn.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block"
-            >
+            <div className="group relative block">
               <motion.div
                 className="pointer-events-none absolute left-1/2 top-1/2 h-[55%] w-[65%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl"
                 animate={{
@@ -135,10 +116,10 @@ export default function WestonRennPage() {
 
               <div className="relative overflow-hidden rounded-2xl bg-[#f1f1ef] px-5 pb-8 pt-10 md:px-8 md:pb-10 md:pt-14">
                 <div className="absolute left-5 top-5 z-20 font-mono text-xs tracking-[0.15em] text-black/30 md:left-7 md:top-7">
-                  westonrenn.com
+                  Vervida / Figma Design
                 </div>
 
-                <div className="relative mx-auto w-full max-w-[820px]">
+                <div className="relative mx-auto w-full max-w-[1000px]">
                   <motion.div
                     className="relative"
                     animate={{ y: [0, -5, 0] }}
@@ -161,19 +142,19 @@ export default function WestonRennPage() {
 
                           <div className="absolute left-1/2 flex h-5 w-[52%] -translate-x-1/2 items-center justify-center rounded-md bg-black/[0.055] px-3">
                             <span className="truncate font-mono text-[8px] text-black/35 md:text-[9px]">
-                              westonrenn.com
+                              figma.com / vervida
                             </span>
                           </div>
                         </div>
 
                         <div className="absolute inset-x-0 bottom-0 top-9 overflow-hidden bg-white">
                           <Image
-                            src="/westonrenn.webp"
-                            alt="Weston Renn homepage"
+                            src="/vervida1.webp"
+                            alt="Vervida Skincare Figma design"
                             fill
                             priority
                             quality={100}
-                            sizes="(max-width: 768px) 100vw, 820px"
+                            sizes="(max-width: 768px) 100vw, 1000px"
                             className="object-cover object-top transition-transform duration-1000 ease-out group-hover:scale-[1.015]"
                           />
 
@@ -203,7 +184,7 @@ export default function WestonRennPage() {
                     <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(238,123,48,0.7)]" />
 
                     <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-black/50">
-                      View live site
+                      Figma concept
                     </span>
 
                     <span className="text-sm transition-transform duration-300 group-hover:translate-x-1">
@@ -212,7 +193,7 @@ export default function WestonRennPage() {
                   </motion.div>
                 </div>
               </div>
-            </a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -228,7 +209,7 @@ export default function WestonRennPage() {
             <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
               <span>02</span>
               <span className="h-px w-8 bg-accent" />
-              <span>The Idea</span>
+              <span>The Concept</span>
             </div>
           </motion.div>
 
@@ -242,27 +223,26 @@ export default function WestonRennPage() {
               variants={fadeUp}
               className="max-w-4xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl"
             >
-              A website built around a{" "}
-              <span className="text-accent">story.</span>
+              A skincare experience built around{" "}
+              <span className="text-accent">clarity.</span>
             </motion.h2>
 
             <motion.p
               variants={fadeUp}
               className="mt-8 max-w-2xl text-base leading-8 text-black/50 sm:text-lg"
             >
-              Weston Renn needed more than a standard author website. The
-              experience had to introduce the author, establish a distinct
-              visual identity, create curiosity around the book, and naturally
-              guide visitors toward the digital product.
+              Vervida was approached as a premium skincare brand that needed an
+              interface capable of communicating quality without making the
+              shopping experience feel complicated.
             </motion.p>
 
             <motion.p
               variants={fadeUp}
               className="mt-5 max-w-2xl text-base leading-8 text-black/50 sm:text-lg"
             >
-              The direction was intentionally cinematic and minimal, using
-              typography, contrast, motion, and carefully controlled spacing to
-              make the story feel like the product itself.
+              The concept focused on creating a visual system that feels
+              sophisticated and calm while keeping products, information, and
+              purchase actions easy to discover.
             </motion.p>
           </motion.div>
         </div>
@@ -280,12 +260,12 @@ export default function WestonRennPage() {
               <div className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
                 <span>03</span>
                 <span className="h-px w-8 bg-accent" />
-                <span>Research & Problems</span>
+                <span>Research & Direction</span>
               </div>
 
               <h2 className="max-w-5xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                From an author page to a{" "}
-                <span className="text-accent">digital experience.</span>
+                Three principles shaped the{" "}
+                <span className="text-accent">interface.</span>
               </h2>
             </motion.div>
 
@@ -293,18 +273,18 @@ export default function WestonRennPage() {
               {[
                 {
                   number: "01",
-                  title: "Build credibility",
-                  text: "The website needed to immediately communicate who Weston was and establish a premium author identity.",
+                  title: "Premium",
+                  text: "The visual language needed to communicate quality through typography, spacing, imagery, and restrained visual details.",
                 },
                 {
                   number: "02",
-                  title: "Create curiosity",
-                  text: "The book had to feel intriguing before the visitor ever reached the purchase section.",
+                  title: "Clarity",
+                  text: "Products and their information should remain easy to scan, understand, and compare without unnecessary visual noise.",
                 },
                 {
                   number: "03",
-                  title: "Reduce friction",
-                  text: "The journey from discovering the story to understanding the product and purchasing it needed to feel natural.",
+                  title: "Confidence",
+                  text: "Every interaction should feel intentional and familiar, helping users move through the shopping journey with confidence.",
                 },
               ].map((item) => (
                 <motion.div
@@ -342,11 +322,12 @@ export default function WestonRennPage() {
               <div className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
                 <span>04</span>
                 <span className="h-px w-8 bg-accent" />
-                <span>Design & Experience</span>
+                <span>Visual Design</span>
               </div>
 
               <h2 className="max-w-5xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                Designed to feel <span className="text-accent">immersive.</span>
+                Quiet visuals,{" "}
+                <span className="text-accent">strong presence.</span>
               </h2>
             </motion.div>
 
@@ -364,44 +345,38 @@ export default function WestonRennPage() {
                   </svg>
 
                   <span className="font-mono text-xs uppercase tracking-[0.15em] text-white/40">
-                    Design
+                    Visual System
                   </span>
                 </div>
 
                 <h3 className="mt-16 text-3xl font-medium tracking-[-0.04em]">
-                  Visual direction
+                  Refined brand language
                 </h3>
 
                 <p className="mt-5 max-w-md text-sm leading-7 text-white/45">
-                  A dark editorial aesthetic combines oversized typography,
-                  restrained colors, cinematic imagery, subtle transitions, and
-                  generous negative space.
+                  Typography, product imagery, spacing, neutral tones, and
+                  carefully controlled contrast work together to create a
+                  premium skincare aesthetic.
                 </p>
               </div>
 
               <div className="rounded-2xl bg-[#f1f1ef] p-8 md:p-10">
                 <div className="flex items-center gap-3">
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-5 w-5 fill-current"
-                    style={{ color: "#000000" }}
-                  >
-                    <path d={siNextdotjs.path} />
-                  </svg>
+                  <span className="h-5 w-5 rounded-full border border-black/15 bg-white" />
 
                   <span className="font-mono text-xs uppercase tracking-[0.15em] text-black/40">
-                    Development
+                    Interface
                   </span>
                 </div>
 
                 <h3 className="mt-16 text-3xl font-medium tracking-[-0.04em]">
-                  Motion meets performance
+                  Product-first layouts
                 </h3>
 
                 <p className="mt-5 max-w-md text-sm leading-7 text-black/50">
-                  The design was translated into a responsive Next.js experience
-                  with reusable components, optimized media, smooth animations,
-                  and a structure prepared for search visibility.
+                  The layouts prioritize product discovery and supporting
+                  information while maintaining enough whitespace for the brand
+                  to feel elevated rather than purely transactional.
                 </p>
               </div>
             </motion.div>
@@ -420,7 +395,7 @@ export default function WestonRennPage() {
             <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
               <span>05</span>
               <span className="h-px w-8 bg-accent" />
-              <span>Design to Development</span>
+              <span>User Experience</span>
             </div>
           </motion.div>
 
@@ -434,32 +409,32 @@ export default function WestonRennPage() {
               variants={fadeUp}
               className="max-w-4xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl"
             >
-              From visual concept to{" "}
-              <span className="text-accent">working product.</span>
+              Make the path to the product{" "}
+              <span className="text-accent">obvious.</span>
             </motion.h2>
 
             <motion.p
               variants={fadeUp}
               className="mt-8 max-w-2xl text-base leading-8 text-black/50 sm:text-lg"
             >
-              The interface was developed as a real production website rather
-              than a static design concept. Components were structured around
-              reusable sections and responsive behavior from the beginning.
+              The interface was structured around a straightforward shopping
+              journey: discover the brand, explore products, understand what
+              each product offers, and move naturally toward purchase.
             </motion.p>
 
             <motion.p
               variants={fadeUp}
               className="mt-5 max-w-2xl text-base leading-8 text-black/50 sm:text-lg"
             >
-              Performance, responsive layouts, metadata, content structure, and
-              the digital product flow were considered alongside the visual
-              design.
+              Navigation, hierarchy, product presentation, and calls to action
+              were designed to reduce friction while preserving the visual
+              character of the brand.
             </motion.p>
           </motion.div>
         </div>
       </section>
 
-      <section className="bg-[#09090B] px-6 py-24 text-white md:px-10 lg:px-16 lg:py-32">
+      <section className="bg-[#f7f7f5] px-6 py-24 md:px-10 lg:px-16 lg:py-32">
         <div className="mx-auto max-w-7xl">
           <motion.div
             initial="hidden"
@@ -471,43 +446,33 @@ export default function WestonRennPage() {
               <div className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
                 <span>06</span>
                 <span className="h-px w-8 bg-accent" />
-                <span>Digital Product</span>
+                <span>Figma Design</span>
               </div>
 
               <h2 className="max-w-5xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                The website becomes the{" "}
-                <span className="text-accent">product journey.</span>
+                From wireframe thinking to a{" "}
+                <span className="text-accent">complete interface.</span>
               </h2>
+
+              <p className="mt-8 max-w-2xl text-base leading-8 text-black/50 sm:text-lg">
+                The final Figma work brings the visual direction, product
+                hierarchy, and interaction patterns together into a cohesive
+                e-commerce concept.
+              </p>
             </motion.div>
 
             <motion.div
               variants={fadeUp}
-              className="mt-10 grid gap-4 md:mt-14 md:grid-cols-2 md:gap-5"
+              className="mt-16 overflow-hidden rounded-2xl bg-white p-4 shadow-[0_25px_70px_rgba(0,0,0,0.08)] md:p-6 lg:p-8"
             >
-              <div className="overflow-hidden rounded-xl bg-[#171717] md:rounded-2xl">
-                <Image
-                  src="/westonrenn-product.webp"
-                  alt="Weston Renn digital product"
-                  width={1200}
-                  height={800}
-                  className="h-auto w-full object-cover"
-                />
-              </div>
-
-              <div className="flex flex-col justify-center rounded-xl border border-white/10 p-6 md:rounded-2xl md:p-12">
-                <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/35">
-                  E-book
-                </span>
-
-                <h3 className="mt-6 text-2xl font-medium tracking-[-0.04em] md:mt-16 md:text-3xl">
-                  Turning attention into action.
-                </h3>
-
-                <p className="mt-4 max-w-md text-sm leading-6 text-white/45 md:mt-5 md:leading-7">
-                  The product experience was designed to make the value of the
-                  book clear while keeping the purchase path simple and focused.
-                </p>
-              </div>
+              <Image
+                src="/vervida2.webp"
+                alt="Vervida Skincare Figma interface"
+                width={1800}
+                height={1200}
+                quality={100}
+                className="h-auto w-full rounded-xl object-cover"
+              />
             </motion.div>
           </motion.div>
         </div>
@@ -529,14 +494,14 @@ export default function WestonRennPage() {
               </div>
 
               <h2 className="max-w-5xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                A digital home for the{" "}
-                <span className="text-accent">Weston Renn brand.</span>
+                A skincare interface designed to{" "}
+                <span className="text-accent">feel premium.</span>
               </h2>
 
               <p className="mt-8 max-w-2xl text-base leading-8 text-black/50 sm:text-lg">
-                The final experience brings the author identity, story,
-                editorial direction, and digital product together into one
-                focused journey.
+                Vervida translates a refined skincare identity into a focused
+                e-commerce interface where visual direction and usability work
+                together.
               </p>
             </motion.div>
 
@@ -545,12 +510,7 @@ export default function WestonRennPage() {
               className="mt-16 border-y border-black/10"
             >
               <div className="grid sm:grid-cols-2">
-                <a
-                  href="https://github.com/itsmilos/westonrenn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-between border-b border-black/10 py-7 transition-all duration-500 hover:px-3 sm:border-b-0 sm:border-r sm:pr-10 sm:hover:px-3"
-                >
+                <div className="group flex items-center justify-between border-b border-black/10 py-7 transition-all duration-500 hover:px-3 sm:border-b-0 sm:border-r sm:pr-10 sm:hover:px-3">
                   <div className="flex items-center gap-5">
                     <span className="font-mono text-[10px] tracking-[0.15em] text-black/25">
                       01
@@ -558,26 +518,24 @@ export default function WestonRennPage() {
 
                     <div>
                       <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-black/30">
-                        Source
+                        Design tool
                       </span>
 
                       <span className="mt-1 block text-xl font-medium tracking-[-0.03em]">
-                        See the code
+                        Designed in Figma
                       </span>
                     </div>
                   </div>
 
-                  <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
-                    ↗
-                  </span>
-                </a>
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-5 w-5 fill-current text-black/40 transition-transform duration-300 group-hover:rotate-6 group-hover:text-accent"
+                  >
+                    <path d={siFigma.path} />
+                  </svg>
+                </div>
 
-                <a
-                  href="https://westonrenn.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-between py-7 transition-all duration-500 hover:px-3 sm:pl-10"
-                >
+                <div className="group flex items-center justify-between py-7 transition-all duration-500 hover:px-3 sm:pl-10">
                   <div className="flex items-center gap-5">
                     <span className="font-mono text-[10px] tracking-[0.15em] text-black/25">
                       02
@@ -585,19 +543,17 @@ export default function WestonRennPage() {
 
                     <div>
                       <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-black/30">
-                        Live website
+                        Project type
                       </span>
 
                       <span className="mt-1 block text-xl font-medium tracking-[-0.03em]">
-                        See it live
+                        UI/UX Concept
                       </span>
                     </div>
                   </div>
 
-                  <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
-                    ↗
-                  </span>
-                </a>
+                  <span className="text-lg text-black/30">↗</span>
+                </div>
               </div>
             </motion.div>
 
@@ -607,14 +563,30 @@ export default function WestonRennPage() {
             >
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-black/30">
+                  Previous project
+                </p>
+
+                <Link
+                  href="/work/weston-renn"
+                  className="group mt-2 inline-flex items-center gap-3 text-xl font-medium tracking-[-0.03em]"
+                >
+                  Weston Renn
+                  <span className="transition-transform duration-300 group-hover:-translate-x-1">
+                    ←
+                  </span>
+                </Link>
+              </div>
+
+              <div className="sm:text-right">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-black/30">
                   Next project
                 </p>
 
                 <Link
-                  href="/work/vervida"
+                  href="/work/lume"
                   className="group mt-2 inline-flex items-center gap-3 text-xl font-medium tracking-[-0.03em]"
                 >
-                  Vervida Skincare
+                  Lumé Beauty Studio
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>

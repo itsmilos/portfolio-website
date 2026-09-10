@@ -4,10 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  siFigma,
   siNextdotjs,
   siTypescript,
   siTailwindcss,
+  siMongodb,
 } from "simple-icons/icons";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -40,9 +40,14 @@ const technologies = [
     icon: siTailwindcss,
     color: "#06B6D4",
   },
+  {
+    name: "MongoDB",
+    icon: siMongodb,
+    color: "#47A248",
+  },
 ];
 
-export default function WestonRennPage() {
+export default function LumePage() {
   return (
     <main className="bg-white text-[#09090B]">
       <section className="px-6 pb-24 pt-32 md:px-10 lg:px-16 lg:pb-32 lg:pt-40">
@@ -57,16 +62,16 @@ export default function WestonRennPage() {
             <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
               <div>
                 <h1 className="max-w-5xl text-[clamp(3.5rem,8vw,8rem)] font-medium leading-[0.88] tracking-[-0.065em]">
-                  Weston
+                  Lumé
                   <br />
-                  Renn<span className="text-accent">.</span>
+                  Beauty<span className="text-accent">.</span>
                 </h1>
               </div>
 
               <div className="max-w-md lg:pb-2">
                 <p className="text-lg leading-8 text-black/50">
-                  A cinematic author website designed and developed around
-                  storytelling, personal branding, and digital product sales.
+                  A custom booking platform designed to turn a beauty studio
+                  website into a simple, direct appointment experience.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-2">
@@ -97,7 +102,7 @@ export default function WestonRennPage() {
             className="mt-20"
           >
             <a
-              href="https://westonrenn.com"
+              href="https://lume-studio-ashen.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative block"
@@ -135,7 +140,7 @@ export default function WestonRennPage() {
 
               <div className="relative overflow-hidden rounded-2xl bg-[#f1f1ef] px-5 pb-8 pt-10 md:px-8 md:pb-10 md:pt-14">
                 <div className="absolute left-5 top-5 z-20 font-mono text-xs tracking-[0.15em] text-black/30 md:left-7 md:top-7">
-                  westonrenn.com
+                  lume-beauty.com
                 </div>
 
                 <div className="relative mx-auto w-full max-w-[820px]">
@@ -161,15 +166,15 @@ export default function WestonRennPage() {
 
                           <div className="absolute left-1/2 flex h-5 w-[52%] -translate-x-1/2 items-center justify-center rounded-md bg-black/[0.055] px-3">
                             <span className="truncate font-mono text-[8px] text-black/35 md:text-[9px]">
-                              westonrenn.com
+                              lume-beauty.com
                             </span>
                           </div>
                         </div>
 
                         <div className="absolute inset-x-0 bottom-0 top-9 overflow-hidden bg-white">
                           <Image
-                            src="/westonrenn.webp"
-                            alt="Weston Renn homepage"
+                            src="/lume1.webp"
+                            alt="Lumé Beauty Studio homepage"
                             fill
                             priority
                             quality={100}
@@ -228,7 +233,7 @@ export default function WestonRennPage() {
             <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
               <span>02</span>
               <span className="h-px w-8 bg-accent" />
-              <span>The Idea</span>
+              <span>The Problem</span>
             </div>
           </motion.div>
 
@@ -242,27 +247,28 @@ export default function WestonRennPage() {
               variants={fadeUp}
               className="max-w-4xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl"
             >
-              A website built around a{" "}
-              <span className="text-accent">story.</span>
+              Booking should not start with a{" "}
+              <span className="text-accent">DM.</span>
             </motion.h2>
 
             <motion.p
               variants={fadeUp}
               className="mt-8 max-w-2xl text-base leading-8 text-black/50 sm:text-lg"
             >
-              Weston Renn needed more than a standard author website. The
-              experience had to introduce the author, establish a distinct
-              visual identity, create curiosity around the book, and naturally
-              guide visitors toward the digital product.
+              Many local beauty businesses still rely on Instagram messages,
+              phone calls, or manual conversations to manage appointments. For
+              customers, that means waiting for replies, asking about
+              availability, and coordinating a time manually.
             </motion.p>
 
             <motion.p
               variants={fadeUp}
               className="mt-5 max-w-2xl text-base leading-8 text-black/50 sm:text-lg"
             >
-              The direction was intentionally cinematic and minimal, using
-              typography, contrast, motion, and carefully controlled spacing to
-              make the story feel like the product itself.
+              Lumé was designed around a simpler idea: the website itself should
+              become the booking desk, allowing customers to choose a service,
+              select an available time, and confirm their appointment without
+              leaving the site.
             </motion.p>
           </motion.div>
         </div>
@@ -280,12 +286,12 @@ export default function WestonRennPage() {
               <div className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
                 <span>03</span>
                 <span className="h-px w-8 bg-accent" />
-                <span>Research & Problems</span>
+                <span>The Idea</span>
               </div>
 
               <h2 className="max-w-5xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                From an author page to a{" "}
-                <span className="text-accent">digital experience.</span>
+                Turn the website into the{" "}
+                <span className="text-accent">booking desk.</span>
               </h2>
             </motion.div>
 
@@ -293,18 +299,18 @@ export default function WestonRennPage() {
               {[
                 {
                   number: "01",
-                  title: "Build credibility",
-                  text: "The website needed to immediately communicate who Weston was and establish a premium author identity.",
+                  title: "Choose a service",
+                  text: "Customers can browse available beauty services and understand what they are booking before starting the appointment flow.",
                 },
                 {
                   number: "02",
-                  title: "Create curiosity",
-                  text: "The book had to feel intriguing before the visitor ever reached the purchase section.",
+                  title: "Find a time",
+                  text: "Available appointment slots are generated around working hours and the duration of the selected service.",
                 },
                 {
                   number: "03",
-                  title: "Reduce friction",
-                  text: "The journey from discovering the story to understanding the product and purchasing it needed to feel natural.",
+                  title: "Confirm",
+                  text: "The final step keeps everything focused in one interface, turning the selected service and time into a confirmed appointment.",
                 },
               ].map((item) => (
                 <motion.div
@@ -342,67 +348,46 @@ export default function WestonRennPage() {
               <div className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
                 <span>04</span>
                 <span className="h-px w-8 bg-accent" />
-                <span>Design & Experience</span>
+                <span>Booking Experience</span>
               </div>
 
               <h2 className="max-w-5xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                Designed to feel <span className="text-accent">immersive.</span>
+                Designed to make booking{" "}
+                <span className="text-accent">effortless.</span>
               </h2>
+
+              <p className="mt-8 max-w-2xl text-base leading-8 text-black/50 sm:text-lg">
+                The booking flow keeps the entire appointment process inside one
+                focused interface. Customers can select their service, date, and
+                available time without navigating through multiple pages.
+              </p>
             </motion.div>
 
             <motion.div
               variants={fadeUp}
-              className="mt-14 grid gap-5 md:grid-cols-2"
+              className="mt-16 relative overflow-hidden rounded-2xl bg-[#e9e9e6] p-5 md:p-8 lg:p-12"
             >
-              <div className="rounded-2xl bg-[#09090B] p-8 text-white md:p-10">
-                <div className="flex items-center gap-3">
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-5 w-5 fill-current text-accent"
-                  >
-                    <path d={siFigma.path} />
-                  </svg>
+              <div className="absolute left-1/2 top-1/2 h-[55%] w-[55%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl" />
 
-                  <span className="font-mono text-xs uppercase tracking-[0.15em] text-white/40">
-                    Design
-                  </span>
-                </div>
-
-                <h3 className="mt-16 text-3xl font-medium tracking-[-0.04em]">
-                  Visual direction
-                </h3>
-
-                <p className="mt-5 max-w-md text-sm leading-7 text-white/45">
-                  A dark editorial aesthetic combines oversized typography,
-                  restrained colors, cinematic imagery, subtle transitions, and
-                  generous negative space.
-                </p>
+              <div className="relative mx-auto max-w-4xl overflow-hidden rounded-xl border border-black/10 bg-white shadow-[0_30px_80px_rgba(0,0,0,0.14)]">
+                <Image
+                  src="/lume2.webp"
+                  alt="Lumé Beauty Studio booking interface"
+                  width={1600}
+                  height={1000}
+                  quality={100}
+                  className="h-auto w-full object-cover"
+                />
               </div>
 
-              <div className="rounded-2xl bg-[#f1f1ef] p-8 md:p-10">
-                <div className="flex items-center gap-3">
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-5 w-5 fill-current"
-                    style={{ color: "#000000" }}
-                  >
-                    <path d={siNextdotjs.path} />
-                  </svg>
+              <div className="relative mt-6 flex flex-col justify-between gap-4 border-t border-black/10 pt-5 sm:flex-row sm:items-center">
+                <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-black/30">
+                  Appointment booking flow
+                </span>
 
-                  <span className="font-mono text-xs uppercase tracking-[0.15em] text-black/40">
-                    Development
-                  </span>
-                </div>
-
-                <h3 className="mt-16 text-3xl font-medium tracking-[-0.04em]">
-                  Motion meets performance
-                </h3>
-
-                <p className="mt-5 max-w-md text-sm leading-7 text-black/50">
-                  The design was translated into a responsive Next.js experience
-                  with reusable components, optimized media, smooth animations,
-                  and a structure prepared for search visibility.
-                </p>
+                <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-black/30">
+                  Service → Date → Time → Confirmation
+                </span>
               </div>
             </motion.div>
           </motion.div>
@@ -420,7 +405,7 @@ export default function WestonRennPage() {
             <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
               <span>05</span>
               <span className="h-px w-8 bg-accent" />
-              <span>Design to Development</span>
+              <span>Booking Logic</span>
             </div>
           </motion.div>
 
@@ -434,26 +419,26 @@ export default function WestonRennPage() {
               variants={fadeUp}
               className="max-w-4xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl"
             >
-              From visual concept to{" "}
-              <span className="text-accent">working product.</span>
+              Simple interface, <span className="text-accent">real logic.</span>
             </motion.h2>
 
             <motion.p
               variants={fadeUp}
               className="mt-8 max-w-2xl text-base leading-8 text-black/50 sm:text-lg"
             >
-              The interface was developed as a real production website rather
-              than a static design concept. Components were structured around
-              reusable sections and responsive behavior from the beginning.
+              The booking system was built around real appointment availability
+              rather than a static calendar. Working hours are defined from
+              09:00 to 17:00, with available times generated in 15-minute
+              intervals.
             </motion.p>
 
             <motion.p
               variants={fadeUp}
               className="mt-5 max-w-2xl text-base leading-8 text-black/50 sm:text-lg"
             >
-              Performance, responsive layouts, metadata, content structure, and
-              the digital product flow were considered alongside the visual
-              design.
+              Service duration is also taken into account. Before displaying a
+              slot as available, the system checks existing appointments and
+              prevents overlapping bookings.
             </motion.p>
           </motion.div>
         </div>
@@ -471,43 +456,58 @@ export default function WestonRennPage() {
               <div className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
                 <span>06</span>
                 <span className="h-px w-8 bg-accent" />
-                <span>Digital Product</span>
+                <span>Admin Experience</span>
               </div>
 
               <h2 className="max-w-5xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                The website becomes the{" "}
-                <span className="text-accent">product journey.</span>
+                Built for the <span className="text-accent">business too.</span>
               </h2>
+
+              <p className="mt-8 max-w-2xl text-base leading-8 text-white/45 sm:text-lg">
+                The customer-facing booking flow is backed by a protected admin
+                experience where appointments and services can be managed from
+                one place.
+              </p>
             </motion.div>
 
             <motion.div
               variants={fadeUp}
-              className="mt-10 grid gap-4 md:mt-14 md:grid-cols-2 md:gap-5"
+              className="mt-14 grid gap-5 md:grid-cols-3"
             >
-              <div className="overflow-hidden rounded-xl bg-[#171717] md:rounded-2xl">
-                <Image
-                  src="/westonrenn-product.webp"
-                  alt="Weston Renn digital product"
-                  width={1200}
-                  height={800}
-                  className="h-auto w-full object-cover"
-                />
-              </div>
+              {[
+                {
+                  number: "01",
+                  title: "Appointments",
+                  text: "View and manage incoming customer bookings from a centralized dashboard.",
+                },
+                {
+                  number: "02",
+                  title: "Services",
+                  text: "Control available services and their durations without changing the booking interface.",
+                },
+                {
+                  number: "03",
+                  title: "Protected access",
+                  text: "Administrative functionality is separated from the public experience through authenticated access.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.number}
+                  className="rounded-2xl border border-white/10 bg-white/[0.025] p-7 md:p-8"
+                >
+                  <span className="font-mono text-xs tracking-[0.15em] text-accent">
+                    {item.number}
+                  </span>
 
-              <div className="flex flex-col justify-center rounded-xl border border-white/10 p-6 md:rounded-2xl md:p-12">
-                <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/35">
-                  E-book
-                </span>
+                  <h3 className="mt-12 text-2xl font-medium tracking-[-0.03em]">
+                    {item.title}
+                  </h3>
 
-                <h3 className="mt-6 text-2xl font-medium tracking-[-0.04em] md:mt-16 md:text-3xl">
-                  Turning attention into action.
-                </h3>
-
-                <p className="mt-4 max-w-md text-sm leading-6 text-white/45 md:mt-5 md:leading-7">
-                  The product experience was designed to make the value of the
-                  book clear while keeping the purchase path simple and focused.
-                </p>
-              </div>
+                  <p className="mt-4 text-sm leading-7 text-white/40">
+                    {item.text}
+                  </p>
+                </div>
+              ))}
             </motion.div>
           </motion.div>
         </div>
@@ -529,14 +529,14 @@ export default function WestonRennPage() {
               </div>
 
               <h2 className="max-w-5xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                A digital home for the{" "}
-                <span className="text-accent">Weston Renn brand.</span>
+                A beauty website that{" "}
+                <span className="text-accent">actually books.</span>
               </h2>
 
               <p className="mt-8 max-w-2xl text-base leading-8 text-black/50 sm:text-lg">
-                The final experience brings the author identity, story,
-                editorial direction, and digital product together into one
-                focused journey.
+                Lumé combines a polished beauty studio experience with a
+                functional booking system, giving customers a direct path from
+                discovering a service to reserving an appointment.
               </p>
             </motion.div>
 
@@ -546,7 +546,7 @@ export default function WestonRennPage() {
             >
               <div className="grid sm:grid-cols-2">
                 <a
-                  href="https://github.com/itsmilos/westonrenn"
+                  href="https://github.com/skem-skem"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center justify-between border-b border-black/10 py-7 transition-all duration-500 hover:px-3 sm:border-b-0 sm:border-r sm:pr-10 sm:hover:px-3"
@@ -573,7 +573,7 @@ export default function WestonRennPage() {
                 </a>
 
                 <a
-                  href="https://westonrenn.com"
+                  href="https://lume-studio-ashen.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center justify-between py-7 transition-all duration-500 hover:px-3 sm:pl-10"
@@ -607,7 +607,7 @@ export default function WestonRennPage() {
             >
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-black/30">
-                  Next project
+                  Previous project
                 </p>
 
                 <Link
@@ -615,6 +615,22 @@ export default function WestonRennPage() {
                   className="group mt-2 inline-flex items-center gap-3 text-xl font-medium tracking-[-0.03em]"
                 >
                   Vervida Skincare
+                  <span className="transition-transform duration-300 group-hover:-translate-x-1">
+                    ←
+                  </span>
+                </Link>
+              </div>
+
+              <div className="sm:text-right">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-black/30">
+                  Next project
+                </p>
+
+                <Link
+                  href="/work/gemora"
+                  className="group mt-2 inline-flex items-center gap-3 text-xl font-medium tracking-[-0.03em]"
+                >
+                  GEMORA
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>

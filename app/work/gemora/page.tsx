@@ -4,10 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  siFigma,
-  siNextdotjs,
+  siReact,
   siTypescript,
-  siTailwindcss,
+  siNodedotjs,
+  siExpress,
+  siPostgresql,
+  siPrisma,
+  siSocketdotio,
+  siSupabase,
 } from "simple-icons/icons";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -26,9 +30,9 @@ const fadeUp = {
 
 const technologies = [
   {
-    name: "Next.js",
-    icon: siNextdotjs,
-    color: "#000000",
+    name: "React",
+    icon: siReact,
+    color: "#61DAFB",
   },
   {
     name: "TypeScript",
@@ -36,13 +40,38 @@ const technologies = [
     color: "#3178C6",
   },
   {
-    name: "Tailwind CSS",
-    icon: siTailwindcss,
-    color: "#06B6D4",
+    name: "Node.js",
+    icon: siNodedotjs,
+    color: "#5FA04E",
+  },
+  {
+    name: "Express",
+    icon: siExpress,
+    color: "#000000",
+  },
+  {
+    name: "PostgreSQL",
+    icon: siPostgresql,
+    color: "#4169E1",
+  },
+  {
+    name: "Prisma",
+    icon: siPrisma,
+    color: "#2D3748",
+  },
+  {
+    name: "Socket.IO",
+    icon: siSocketdotio,
+    color: "#010101",
+  },
+  {
+    name: "Supabase",
+    icon: siSupabase,
+    color: "#3ECF8E",
   },
 ];
 
-export default function WestonRennPage() {
+export default function GemoraPage() {
   return (
     <main className="bg-white text-[#09090B]">
       <section className="px-6 pb-24 pt-32 md:px-10 lg:px-16 lg:pb-32 lg:pt-40">
@@ -57,16 +86,15 @@ export default function WestonRennPage() {
             <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
               <div>
                 <h1 className="max-w-5xl text-[clamp(3.5rem,8vw,8rem)] font-medium leading-[0.88] tracking-[-0.065em]">
-                  Weston
-                  <br />
-                  Renn<span className="text-accent">.</span>
+                  GEMORA
+                  <span className="text-accent">.</span>
                 </h1>
               </div>
 
               <div className="max-w-md lg:pb-2">
                 <p className="text-lg leading-8 text-black/50">
-                  A cinematic author website designed and developed around
-                  storytelling, personal branding, and digital product sales.
+                  A full-stack auction platform built around real-time bidding,
+                  live auction updates, and a structured marketplace experience.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-2">
@@ -97,9 +125,7 @@ export default function WestonRennPage() {
             className="mt-20"
           >
             <a
-              href="https://westonrenn.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="https://gemora-auction-house-client-3iod.vercel.app/"
               className="group relative block"
             >
               <motion.div
@@ -135,7 +161,7 @@ export default function WestonRennPage() {
 
               <div className="relative overflow-hidden rounded-2xl bg-[#f1f1ef] px-5 pb-8 pt-10 md:px-8 md:pb-10 md:pt-14">
                 <div className="absolute left-5 top-5 z-20 font-mono text-xs tracking-[0.15em] text-black/30 md:left-7 md:top-7">
-                  westonrenn.com
+                  GEMORA / Auction Platform
                 </div>
 
                 <div className="relative mx-auto w-full max-w-[820px]">
@@ -161,15 +187,15 @@ export default function WestonRennPage() {
 
                           <div className="absolute left-1/2 flex h-5 w-[52%] -translate-x-1/2 items-center justify-center rounded-md bg-black/[0.055] px-3">
                             <span className="truncate font-mono text-[8px] text-black/35 md:text-[9px]">
-                              westonrenn.com
+                              gemora / live auction
                             </span>
                           </div>
                         </div>
 
                         <div className="absolute inset-x-0 bottom-0 top-9 overflow-hidden bg-white">
                           <Image
-                            src="/westonrenn.webp"
-                            alt="Weston Renn homepage"
+                            src="/gemora.webp"
+                            alt="GEMORA auction platform"
                             fill
                             priority
                             quality={100}
@@ -203,7 +229,7 @@ export default function WestonRennPage() {
                     <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(238,123,48,0.7)]" />
 
                     <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-black/50">
-                      View live site
+                      Live bidding
                     </span>
 
                     <span className="text-sm transition-transform duration-300 group-hover:translate-x-1">
@@ -228,7 +254,7 @@ export default function WestonRennPage() {
             <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
               <span>02</span>
               <span className="h-px w-8 bg-accent" />
-              <span>The Idea</span>
+              <span>The Problem</span>
             </div>
           </motion.div>
 
@@ -242,27 +268,28 @@ export default function WestonRennPage() {
               variants={fadeUp}
               className="max-w-4xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl"
             >
-              A website built around a{" "}
-              <span className="text-accent">story.</span>
+              An auction cannot feel <span className="text-accent">live</span>{" "}
+              if users have to refresh.
             </motion.h2>
 
             <motion.p
               variants={fadeUp}
               className="mt-8 max-w-2xl text-base leading-8 text-black/50 sm:text-lg"
             >
-              Weston Renn needed more than a standard author website. The
-              experience had to introduce the author, establish a distinct
-              visual identity, create curiosity around the book, and naturally
-              guide visitors toward the digital product.
+              Traditional web interfaces are built around request-and-response
+              interactions. That works for most content, but an auction creates
+              a different problem: multiple users can interact with the same
+              auction at the same time.
             </motion.p>
 
             <motion.p
               variants={fadeUp}
               className="mt-5 max-w-2xl text-base leading-8 text-black/50 sm:text-lg"
             >
-              The direction was intentionally cinematic and minimal, using
-              typography, contrast, motion, and carefully controlled spacing to
-              make the story feel like the product itself.
+              When one user places a bid, everyone watching that auction needs
+              to see the new price immediately. The platform therefore needed
+              real-time communication between the server and connected clients,
+              rather than relying on page refreshes or repeated requests.
             </motion.p>
           </motion.div>
         </div>
@@ -280,12 +307,12 @@ export default function WestonRennPage() {
               <div className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
                 <span>03</span>
                 <span className="h-px w-8 bg-accent" />
-                <span>Research & Problems</span>
+                <span>The Idea</span>
               </div>
 
               <h2 className="max-w-5xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                From an author page to a{" "}
-                <span className="text-accent">digital experience.</span>
+                Build the auction around{" "}
+                <span className="text-accent">real-time interaction.</span>
               </h2>
             </motion.div>
 
@@ -293,18 +320,18 @@ export default function WestonRennPage() {
               {[
                 {
                   number: "01",
-                  title: "Build credibility",
-                  text: "The website needed to immediately communicate who Weston was and establish a premium author identity.",
+                  title: "Discover",
+                  text: "Users can browse active auctions, search listings, filter results, and open individual auction pages.",
                 },
                 {
                   number: "02",
-                  title: "Create curiosity",
-                  text: "The book had to feel intriguing before the visitor ever reached the purchase section.",
+                  title: "Bid",
+                  text: "Authenticated users can place bids through a focused bidding interface while the server validates the action.",
                 },
                 {
                   number: "03",
-                  title: "Reduce friction",
-                  text: "The journey from discovering the story to understanding the product and purchasing it needed to feel natural.",
+                  title: "Update",
+                  text: "A successful bid is broadcast through Socket.IO so connected users receive the updated auction state instantly.",
                 },
               ].map((item) => (
                 <motion.div
@@ -330,7 +357,10 @@ export default function WestonRennPage() {
         </div>
       </section>
 
-      <section className="px-6 py-24 md:px-10 lg:px-16 lg:py-32">
+      <section
+        id="live-auction"
+        className="px-6 py-24 md:px-10 lg:px-16 lg:py-32"
+      >
         <div className="mx-auto max-w-7xl">
           <motion.div
             initial="hidden"
@@ -342,17 +372,25 @@ export default function WestonRennPage() {
               <div className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
                 <span>04</span>
                 <span className="h-px w-8 bg-accent" />
-                <span>Design & Experience</span>
+                <span>Live Bidding</span>
               </div>
 
               <h2 className="max-w-5xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                Designed to feel <span className="text-accent">immersive.</span>
+                Every bid becomes a{" "}
+                <span className="text-accent">live event.</span>
               </h2>
+
+              <p className="mt-8 max-w-2xl text-base leading-8 text-black/50 sm:text-lg">
+                Socket.IO connects the auction interface with the server in real
+                time. When a bid is successfully processed, the new auction
+                state can be emitted to the users currently connected to that
+                auction.
+              </p>
             </motion.div>
 
             <motion.div
               variants={fadeUp}
-              className="mt-14 grid gap-5 md:grid-cols-2"
+              className="mt-16 grid gap-5 md:grid-cols-2"
             >
               <div className="rounded-2xl bg-[#09090B] p-8 text-white md:p-10">
                 <div className="flex items-center gap-3">
@@ -360,48 +398,43 @@ export default function WestonRennPage() {
                     viewBox="0 0 24 24"
                     className="h-5 w-5 fill-current text-accent"
                   >
-                    <path d={siFigma.path} />
+                    <path d={siSocketdotio.path} />
                   </svg>
 
                   <span className="font-mono text-xs uppercase tracking-[0.15em] text-white/40">
-                    Design
+                    Real-time
                   </span>
                 </div>
 
                 <h3 className="mt-16 text-3xl font-medium tracking-[-0.04em]">
-                  Visual direction
+                  Socket.IO
                 </h3>
 
                 <p className="mt-5 max-w-md text-sm leading-7 text-white/45">
-                  A dark editorial aesthetic combines oversized typography,
-                  restrained colors, cinematic imagery, subtle transitions, and
-                  generous negative space.
+                  Instead of waiting for another request, connected clients can
+                  receive auction updates as soon as the relevant server event
+                  occurs.
                 </p>
               </div>
 
               <div className="rounded-2xl bg-[#f1f1ef] p-8 md:p-10">
                 <div className="flex items-center gap-3">
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-5 w-5 fill-current"
-                    style={{ color: "#000000" }}
-                  >
-                    <path d={siNextdotjs.path} />
-                  </svg>
+                  <span className="flex h-5 w-5 items-center justify-center">
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
+                  </span>
 
                   <span className="font-mono text-xs uppercase tracking-[0.15em] text-black/40">
-                    Development
+                    Live state
                   </span>
                 </div>
 
                 <h3 className="mt-16 text-3xl font-medium tracking-[-0.04em]">
-                  Motion meets performance
+                  No manual refresh
                 </h3>
 
                 <p className="mt-5 max-w-md text-sm leading-7 text-black/50">
-                  The design was translated into a responsive Next.js experience
-                  with reusable components, optimized media, smooth animations,
-                  and a structure prepared for search visibility.
+                  The interface is designed around the assumption that auction
+                  data can change while the user is looking at the page.
                 </p>
               </div>
             </motion.div>
@@ -420,7 +453,7 @@ export default function WestonRennPage() {
             <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
               <span>05</span>
               <span className="h-px w-8 bg-accent" />
-              <span>Design to Development</span>
+              <span>Full-Stack Architecture</span>
             </div>
           </motion.div>
 
@@ -434,27 +467,96 @@ export default function WestonRennPage() {
               variants={fadeUp}
               className="max-w-4xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl"
             >
-              From visual concept to{" "}
-              <span className="text-accent">working product.</span>
+              A frontend connected to a{" "}
+              <span className="text-accent">real backend.</span>
             </motion.h2>
 
             <motion.p
               variants={fadeUp}
               className="mt-8 max-w-2xl text-base leading-8 text-black/50 sm:text-lg"
             >
-              The interface was developed as a real production website rather
-              than a static design concept. Components were structured around
-              reusable sections and responsive behavior from the beginning.
+              GEMORA was structured as a full-stack application with React and
+              TypeScript on the client and an Express/Node.js backend handling
+              API requests, authentication, auction operations, and real-time
+              events.
             </motion.p>
 
             <motion.p
               variants={fadeUp}
               className="mt-5 max-w-2xl text-base leading-8 text-black/50 sm:text-lg"
             >
-              Performance, responsive layouts, metadata, content structure, and
-              the digital product flow were considered alongside the visual
-              design.
+              PostgreSQL and Prisma provide the data layer, while Supabase
+              Storage handles uploaded auction imagery. The application was
+              deployed with the frontend and backend working as a connected
+              system.
             </motion.p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-[#f7f7f5] px-6 py-24 md:px-10 lg:px-16 lg:py-32">
+        <div className="mx-auto max-w-7xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ staggerChildren: 0.12 }}
+          >
+            <motion.div variants={fadeUp}>
+              <div className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
+                <span>06</span>
+                <span className="h-px w-8 bg-accent" />
+                <span>Auction Experience</span>
+              </div>
+
+              <h2 className="max-w-5xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl">
+                Everything needed to{" "}
+                <span className="text-accent">participate.</span>
+              </h2>
+            </motion.div>
+
+            <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  number: "01",
+                  title: "Live auctions",
+                  text: "Active listings with countdowns and continuously updated bidding information.",
+                },
+                {
+                  number: "02",
+                  title: "Search & filters",
+                  text: "Users can quickly narrow the auction catalog and discover relevant listings.",
+                },
+                {
+                  number: "03",
+                  title: "Protected bidding",
+                  text: "Authenticated users can access bidding functionality while protected routes handle restricted actions.",
+                },
+                {
+                  number: "04",
+                  title: "Roles",
+                  text: "Different user capabilities are handled through authentication and role-based access.",
+                },
+              ].map((item) => (
+                <motion.div
+                  key={item.number}
+                  variants={fadeUp}
+                  className="rounded-2xl border border-black/10 bg-white p-7"
+                >
+                  <span className="font-mono text-xs tracking-[0.15em] text-accent">
+                    {item.number}
+                  </span>
+
+                  <h3 className="mt-10 text-xl font-medium tracking-[-0.03em]">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-4 text-sm leading-7 text-black/50">
+                    {item.text}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
@@ -469,45 +571,55 @@ export default function WestonRennPage() {
           >
             <motion.div variants={fadeUp}>
               <div className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
-                <span>06</span>
+                <span>07</span>
                 <span className="h-px w-8 bg-accent" />
-                <span>Digital Product</span>
+                <span>What I Solved</span>
               </div>
 
               <h2 className="max-w-5xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                The website becomes the{" "}
-                <span className="text-accent">product journey.</span>
+                From static auction listings to a{" "}
+                <span className="text-accent">live marketplace.</span>
               </h2>
             </motion.div>
 
             <motion.div
               variants={fadeUp}
-              className="mt-10 grid gap-4 md:mt-14 md:grid-cols-2 md:gap-5"
+              className="mt-14 grid gap-5 md:grid-cols-3"
             >
-              <div className="overflow-hidden rounded-xl bg-[#171717] md:rounded-2xl">
-                <Image
-                  src="/westonrenn-product.webp"
-                  alt="Weston Renn digital product"
-                  width={1200}
-                  height={800}
-                  className="h-auto w-full object-cover"
-                />
-              </div>
+              {[
+                {
+                  number: "01",
+                  title: "Real-time communication",
+                  text: "Implemented Socket.IO events so auction changes can be distributed to connected clients without requiring page refreshes.",
+                },
+                {
+                  number: "02",
+                  title: "Auction state",
+                  text: "Connected bidding actions, countdowns, current prices, and auction status into one consistent application flow.",
+                },
+                {
+                  number: "03",
+                  title: "Full-stack flow",
+                  text: "Connected the UI, API, authentication, database, file storage, and real-time layer into a single working product.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.number}
+                  className="rounded-2xl border border-white/10 bg-white/[0.025] p-7 md:p-8"
+                >
+                  <span className="font-mono text-xs tracking-[0.15em] text-accent">
+                    {item.number}
+                  </span>
 
-              <div className="flex flex-col justify-center rounded-xl border border-white/10 p-6 md:rounded-2xl md:p-12">
-                <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/35">
-                  E-book
-                </span>
+                  <h3 className="mt-12 text-2xl font-medium tracking-[-0.03em]">
+                    {item.title}
+                  </h3>
 
-                <h3 className="mt-6 text-2xl font-medium tracking-[-0.04em] md:mt-16 md:text-3xl">
-                  Turning attention into action.
-                </h3>
-
-                <p className="mt-4 max-w-md text-sm leading-6 text-white/45 md:mt-5 md:leading-7">
-                  The product experience was designed to make the value of the
-                  book clear while keeping the purchase path simple and focused.
-                </p>
-              </div>
+                  <p className="mt-4 text-sm leading-7 text-white/40">
+                    {item.text}
+                  </p>
+                </div>
+              ))}
             </motion.div>
           </motion.div>
         </div>
@@ -523,20 +635,20 @@ export default function WestonRennPage() {
           >
             <motion.div variants={fadeUp}>
               <div className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
-                <span>07</span>
+                <span>08</span>
                 <span className="h-px w-8 bg-accent" />
                 <span>Final Result</span>
               </div>
 
               <h2 className="max-w-5xl text-4xl font-medium tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                A digital home for the{" "}
-                <span className="text-accent">Weston Renn brand.</span>
+                An auction platform built for{" "}
+                <span className="text-accent">real-time interaction.</span>
               </h2>
 
               <p className="mt-8 max-w-2xl text-base leading-8 text-black/50 sm:text-lg">
-                The final experience brings the author identity, story,
-                editorial direction, and digital product together into one
-                focused journey.
+                GEMORA brings live bidding, authentication, auction management,
+                search, filtering, and persistent data together into one
+                full-stack application.
               </p>
             </motion.div>
 
@@ -544,57 +656,78 @@ export default function WestonRennPage() {
               variants={fadeUp}
               className="mt-16 border-y border-black/10"
             >
-              <div className="grid sm:grid-cols-2">
+              <div className="grid border-b border-black/10 md:grid-cols-3">
                 <a
-                  href="https://github.com/itsmilos/westonrenn"
+                  href="https://gemora-auction-house-client-3iod.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-between border-b border-black/10 py-7 transition-all duration-500 hover:px-3 sm:border-b-0 sm:border-r sm:pr-10 sm:hover:px-3"
+                  className="group flex items-center justify-between border-b border-black/10 py-7 transition-all duration-500 hover:px-3 md:border-b-0 md:border-r md:pr-8 md:hover:px-4"
                 >
-                  <div className="flex items-center gap-5">
-                    <span className="font-mono text-[10px] tracking-[0.15em] text-black/25">
-                      01
-                    </span>
-
-                    <div>
-                      <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-black/30">
-                        Source
+                  <div>
+                    <div className="mb-4 flex items-center gap-3">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-black/25">
+                        Live website
                       </span>
 
-                      <span className="mt-1 block text-xl font-medium tracking-[-0.03em]">
-                        See the code
-                      </span>
+                      <span className="h-px w-6 bg-black/10 transition-all duration-500 group-hover:w-10 group-hover:bg-accent" />
                     </div>
+
+                    <span className="block text-xl font-medium tracking-[-0.035em]">
+                      See live site
+                    </span>
                   </div>
 
-                  <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
+                  <span className="mr-2 text-xl text-black/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent">
                     ↗
                   </span>
                 </a>
 
                 <a
-                  href="https://westonrenn.com"
+                  href="https://github.com/itsmilos/gemora-auction-house-client"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-between py-7 transition-all duration-500 hover:px-3 sm:pl-10"
+                  className="group flex items-center justify-between border-b border-black/10 py-7 transition-all duration-500 hover:px-3 md:border-b-0 md:border-r md:px-8 md:hover:px-10"
                 >
-                  <div className="flex items-center gap-5">
-                    <span className="font-mono text-[10px] tracking-[0.15em] text-black/25">
-                      02
-                    </span>
-
-                    <div>
-                      <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-black/30">
-                        Live website
+                  <div>
+                    <div className="mb-4 flex items-center gap-3">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-black/25">
+                        Frontend source
                       </span>
 
-                      <span className="mt-1 block text-xl font-medium tracking-[-0.03em]">
-                        See it live
-                      </span>
+                      <span className="h-px w-6 bg-black/10 transition-all duration-500 group-hover:w-10 group-hover:bg-accent" />
                     </div>
+
+                    <span className="block text-xl font-medium tracking-[-0.035em]">
+                      See frontend
+                    </span>
                   </div>
 
-                  <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
+                  <span className="mr-2 text-xl text-black/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent">
+                    ↗
+                  </span>
+                </a>
+
+                <a
+                  href="https://github.com/itsmilos/gemora-auction-house-server"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between py-7 transition-all duration-500 hover:px-3 md:pl-8 md:hover:px-4"
+                >
+                  <div>
+                    <div className="mb-4 flex items-center gap-3">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-black/25">
+                        Backend source
+                      </span>
+
+                      <span className="h-px w-6 bg-black/10 transition-all duration-500 group-hover:w-10 group-hover:bg-accent" />
+                    </div>
+
+                    <span className="block text-xl font-medium tracking-[-0.035em]">
+                      See backend
+                    </span>
+                  </div>
+
+                  <span className="mr-2 text-xl text-black/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent">
                     ↗
                   </span>
                 </a>
@@ -607,14 +740,30 @@ export default function WestonRennPage() {
             >
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-black/30">
+                  Previous project
+                </p>
+
+                <Link
+                  href="/work/lume"
+                  className="group mt-2 inline-flex items-center gap-3 text-xl font-medium tracking-[-0.03em]"
+                >
+                  Lumé Beauty Studio
+                  <span className="transition-transform duration-300 group-hover:-translate-x-1">
+                    ←
+                  </span>
+                </Link>
+              </div>
+
+              <div className="sm:text-right">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-black/30">
                   Next project
                 </p>
 
                 <Link
-                  href="/work/vervida"
+                  href="/work/weston-renn"
                   className="group mt-2 inline-flex items-center gap-3 text-xl font-medium tracking-[-0.03em]"
                 >
-                  Vervida Skincare
+                  Weston Renn
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>
