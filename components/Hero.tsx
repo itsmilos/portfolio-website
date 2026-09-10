@@ -144,7 +144,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-white px-6 text-[#09090B] md:px-10 lg:px-16">
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-white px-6 pb-16 pt-28 text-[#09090B] md:px-10 md:pt-32 lg:px-16 lg:pt-36">
       <div className="mx-auto w-full max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: -15 }}
