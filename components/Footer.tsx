@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowUpRight, Mail } from "lucide-react";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
 const links = [
   {
@@ -18,6 +18,11 @@ const links = [
     label: "Email",
     href: "mailto:hello@itsmilos.dev",
     icon: Mail,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/skem.vault/",
+    icon: FaInstagram,
   },
 ];
 
@@ -102,14 +107,8 @@ export default function Footer() {
             </nav>
           </div>
 
-          <div className="flex flex-col gap-3 border-t border-black/[0.06] py-5 text-[10px] uppercase tracking-[0.18em] text-black/25 sm:flex-row sm:items-center sm:justify-between">
-            <span>© {new Date().getFullYear()} milos.dev</span>
-
-            <span>
-              Available for <span className="text-accent">new projects</span>
-            </span>
-
-            <span>Based in Bosnia &amp; Herzegovina</span>
+          <div className="flex flex-col gap-3 border-t border-black/[0.06] py-5 text-[10px] uppercase tracking-[0.18em] text-black/25 sm:flex-row sm:items-center sm:justify-center">
+            <span>All rights reserved milos.dev 2026</span>
           </div>
         </footer>
       </div>
