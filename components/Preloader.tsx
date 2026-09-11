@@ -22,18 +22,21 @@ export default function Preloader() {
     sessionStorage.setItem("portfolio-visited", "true");
     setShowPreloader(true);
 
-    const duration = 1400;
+    const duration = 1700;
     const start = performance.now();
 
     const tick = (now: number) => {
       const elapsed = now - start;
       const pct = Math.min(100, Math.round((elapsed / duration) * 100));
+
       setProgress(pct);
 
       if (elapsed < duration) {
         requestAnimationFrame(tick);
       } else {
-        setTimeout(() => setShowPreloader(false), 200);
+        setTimeout(() => {
+          setShowPreloader(false);
+        }, 300);
       }
     };
 
@@ -47,42 +50,37 @@ export default function Preloader() {
           initial={{ y: 0 }}
           exit={{
             y: "-100%",
-            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+            transition: {
+              duration: 0.9,
+              ease: [0.76, 0, 0.24, 1],
+            },
           }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-white"
+          className="fixed inset-0 z-[999999] flex min-h-screen w-screen flex-col justify-end bg-white"
         >
-          <div className="w-[min(90%,320px)]">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-8 flex items-baseline justify-between"
-            >
-              <span className="text-xl font-semibold tracking-[-0.04em] text-black">
-                &lt;milos.dev/&gt;
-              </span>
-              <span className="font-mono text-sm text-black/50 tabular-nums">
+          <div className="w-full px-6 pb-8 md:px-10 md:pb-10 lg:px-14 lg:pb-12">
+            <div className="flex items-end justify-between">
+              <div
+                className="font-mono text-[clamp(6rem,18vw,18rem)] font-medium leading-[0.72] tracking-[-0.1em] tabular-nums transition-colors duration-150"
+                style={{
+                  color: `color-mix(in srgb, #EE7B30 ${progress}%, #9ca3af)`,
+                }}
+              >
                 {progress}%
-              </span>
-            </motion.div>
+              </div>
 
-            <div className="h-[2px] w-full overflow-hidden bg-black/10">
-              <motion.div
-                animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.1, ease: "linear" }}
-                className="h-full bg-[#EE7B30]"
-              />
+              <span className="mb-2 font-mono text-[9px] uppercase tracking-[0.3em] text-black/30 md:mb-4">
+                Loading
+              </span>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              className="mt-3 flex justify-between text-[10px] uppercase tracking-[0.2em] text-black/40"
-            >
-              <span>Portfolio</span>
-              <span>2026</span>
-            </motion.div>
+            <div className="mt-8 h-[5px] w-full overflow-hidden bg-black/[0.08] md:mt-10 md:h-[7px]">
+              <div
+                className="h-full bg-accent"
+                style={{
+                  width: `${progress}%`,
+                }}
+              />
+            </div>
           </div>
         </motion.div>
       )}
