@@ -21,7 +21,7 @@ const links = [
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/skem.vault/",
+    href: "https://www.instagram.com/devbym/",
     icon: FaInstagram,
   },
 ];
