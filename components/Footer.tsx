@@ -16,7 +16,7 @@ const links = [
   },
   {
     label: "Email",
-    href: "mailto:hello@itsmilos.dev",
+    href: "mailto:hello@devbym.com",
     icon: Mail,
   },
   {
@@ -53,7 +53,7 @@ export default function Footer() {
           </p>
 
           <a
-            href="mailto:hello@itsmilos.dev"
+            href="mailto:hello@devbym.com"
             className="group mt-10 inline-flex items-center gap-4 rounded-full border border-black/10 bg-black/[0.025] px-6 py-4 transition-all duration-300 hover:border-accent/40 hover:bg-accent/[0.06]"
           >
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-black transition-transform duration-300 group-hover:scale-105">
@@ -61,7 +61,7 @@ export default function Footer() {
             </span>
 
             <span className="text-sm font-medium text-[#09090B] sm:text-base">
-              hello@itsmilos.dev
+              hello@devbym.com
             </span>
 
             <ArrowUpRight className="h-4 w-4 text-black/25 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
