@@ -6,10 +6,12 @@ import Resume from "@/components/Resume";
 import SelectedWork from "@/components/SelectedWork";
 import StackPage from "@/components/Stack";
 import Testimonial from "@/components/Testimonial";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
   return (
-    <div>
+    <>
+      <Analytics />
       <Hero />
       <About />
       <Approach />
@@ -17,6 +19,6 @@ export default function Home() {
       <StackPage />
       <Resume />
       <Testimonial />
-    </div>
+    </>
   );
 }
