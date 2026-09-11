@@ -77,8 +77,8 @@ export default function VervidaPage() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.15, ease }}
             className="mt-20"
           >
@@ -114,84 +114,44 @@ export default function VervidaPage() {
                 }}
               />
 
-              <div className="relative overflow-hidden rounded-2xl bg-[#f1f1ef] px-5 pb-8 pt-10 md:px-8 md:pb-10 md:pt-14">
+              <div className="relative overflow-hidden rounded-2xl bg-[#f1f1ef] p-4 md:p-6 lg:p-8">
                 <div className="absolute left-5 top-5 z-20 font-mono text-xs tracking-[0.15em] text-black/30 md:left-7 md:top-7">
                   Vervida / Figma Design
                 </div>
 
-                <div className="relative mx-auto w-full max-w-[1000px]">
-                  <motion.div
-                    className="relative"
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <div className="relative overflow-hidden rounded-t-[10px] border-[5px] border-[#191919] bg-[#191919] shadow-[0_30px_80px_rgba(0,0,0,0.2)] transition-all duration-700 group-hover:shadow-[0_35px_100px_rgba(238,123,48,0.18)]">
-                      <div className="absolute left-1/2 top-0 z-30 h-[5px] w-20 -translate-x-1/2 rounded-b-md bg-[#191919]" />
+                <div className="relative mx-auto w-full max-w-[850px] overflow-hidden rounded-xl bg-white shadow-[0_30px_80px_rgba(0,0,0,0.12)]">
+                  <img
+                    src="/vervida1.webp"
+                    alt="Vervida Skincare Figma moodboard"
+                    className="block h-auto w-full"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
 
-                      <div className="relative aspect-[16/10] overflow-hidden bg-white">
-                        <div className="absolute left-0 right-0 top-0 z-20 flex h-9 items-center border-b border-black/10 bg-[#f7f7f7] px-3">
-                          <div className="flex items-center gap-1.5">
-                            <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-                            <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-                            <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-                          </div>
-
-                          <div className="absolute left-1/2 flex h-5 w-[52%] -translate-x-1/2 items-center justify-center rounded-md bg-black/[0.055] px-3">
-                            <span className="truncate font-mono text-[8px] text-black/35 md:text-[9px]">
-                              figma.com / vervida
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="absolute inset-x-0 bottom-0 top-9 overflow-hidden bg-white">
-                          <Image
-                            src="/vervida1.webp"
-                            alt="Vervida Skincare Figma design"
-                            fill
-                            priority
-                            quality={100}
-                            sizes="(max-width: 768px) 100vw, 1000px"
-                            className="object-cover object-top transition-transform duration-1000 ease-out group-hover:scale-[1.015]"
-                          />
-
-                          <div className="pointer-events-none absolute inset-0 bg-accent/[0.025] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="relative mx-auto h-3 w-[104%] -translate-x-[2%] rounded-b-[10px] bg-gradient-to-b from-[#d8d8d8] to-[#a9a9a9] shadow-[0_15px_25px_rgba(0,0,0,0.12)]">
-                      <div className="absolute left-1/2 top-0 h-1 w-20 -translate-x-1/2 rounded-b-full bg-[#8d8d8d]" />
-                    </div>
-
-                    <div className="mx-auto h-1 w-[88%] rounded-full bg-black/10 blur-[2px]" />
-                  </motion.div>
-
-                  <motion.div
-                    className="absolute -bottom-3 right-3 z-40 flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2.5 shadow-[0_10px_30px_rgba(0,0,0,0.1)] md:-right-5 md:bottom-1"
-                    animate={{
-                      y: [0, -4, 0],
-                    }}
-                    transition={{
-                      duration: 2.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(238,123,48,0.7)]" />
-
-                    <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-black/50">
-                      Figma concept
-                    </span>
-
-                    <span className="text-sm transition-transform duration-300 group-hover:translate-x-1">
-                      ↗
-                    </span>
-                  </motion.div>
+                  <div className="pointer-events-none absolute inset-0 bg-accent/[0.025] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
                 </div>
+
+                <motion.div
+                  className="absolute -bottom-3 right-3 z-40 flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2.5 shadow-[0_10px_30px_rgba(0,0,0,0.1)] md:-right-5 md:bottom-1"
+                  animate={{
+                    y: [0, -4, 0],
+                  }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(238,123,48,0.7)]" />
+
+                  <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-black/50">
+                    Figma concept
+                  </span>
+
+                  <span className="text-sm transition-transform duration-300 group-hover:translate-x-1">
+                    ↗
+                  </span>
+                </motion.div>
               </div>
             </div>
           </motion.div>

@@ -91,8 +91,8 @@ export default function WestonRennPage() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.15, ease }}
             className="mt-20"
           >
@@ -138,16 +138,8 @@ export default function WestonRennPage() {
                   westonrenn.com
                 </div>
 
-                <div className="relative mx-auto w-full max-w-[820px]">
-                  <motion.div
-                    className="relative"
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
+                <div className="relative mx-auto w-full max-w-[760px]">
+                  <div className="relative">
                     <div className="relative overflow-hidden rounded-t-[10px] border-[5px] border-[#191919] bg-[#191919] shadow-[0_30px_80px_rgba(0,0,0,0.2)] transition-all duration-700 group-hover:shadow-[0_35px_100px_rgba(238,123,48,0.18)]">
                       <div className="absolute left-1/2 top-0 z-30 h-[5px] w-20 -translate-x-1/2 rounded-b-md bg-[#191919]" />
 
@@ -167,14 +159,10 @@ export default function WestonRennPage() {
                         </div>
 
                         <div className="absolute inset-x-0 bottom-0 top-9 overflow-hidden bg-white">
-                          <Image
+                          <img
                             src="/westonrenn.webp"
                             alt="Weston Renn homepage"
-                            fill
-                            priority
-                            quality={100}
-                            sizes="(max-width: 768px) 100vw, 820px"
-                            className="object-cover object-top transition-transform duration-1000 ease-out group-hover:scale-[1.015]"
+                            className="h-full w-full object-cover object-top"
                           />
 
                           <div className="pointer-events-none absolute inset-0 bg-accent/[0.025] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
@@ -187,7 +175,7 @@ export default function WestonRennPage() {
                     </div>
 
                     <div className="mx-auto h-1 w-[88%] rounded-full bg-black/10 blur-[2px]" />
-                  </motion.div>
+                  </div>
 
                   <motion.div
                     className="absolute -bottom-3 right-3 z-40 flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2.5 shadow-[0_10px_30px_rgba(0,0,0,0.1)] md:-right-5 md:bottom-1"

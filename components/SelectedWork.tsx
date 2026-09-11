@@ -31,7 +31,7 @@ const projects = [
     category: "Booking Platform",
     description:
       "A custom booking experience designed to make appointment scheduling simple and intuitive.",
-    image: "/lume.webp",
+    image: "/lume1.webp",
     url: "lume-beauty.com",
     slug: "lume",
     className: "md:col-span-1",
