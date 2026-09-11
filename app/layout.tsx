@@ -16,9 +16,35 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Milos - Full Stack Web Developer",
+  title: "Milos | Full-Stack Web Developer",
   description:
-    "Full-stack web developer building modern web applications and digital products.",
+    "I build digital products, web applications, and interfaces designed to be used.",
+
+  openGraph: {
+    title: "Milos | Full-Stack Web Developer",
+    description:
+      "Full-stack developer building modern websites, web apps, and digital products.",
+    url: "https://devbym.com",
+    siteName: "Milos",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Milos | Full-Stack Web Developer",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Milos | Full-Stack Web Developer",
+    description:
+      "Full-stack developer building modern websites, web apps, and digital products.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
