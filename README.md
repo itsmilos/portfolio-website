@@ -1,132 +1,205 @@
-devbym.com
+# devbym.com — Personal Developer Portfolio
 
-Personal portfolio website for showcasing my work as a Full-Stack Web Developer & UI/UX Designer.
+A personal portfolio website designed and developed to showcase my work as a Full-Stack Web Developer and UI/UX Designer.
 
-The website was designed and developed from scratch with a focus on clean interfaces, smooth interactions, performance, and a strong visual identity.
+The project was built as a complete personal digital experience rather than a conventional portfolio template. It combines editorial visual design, interactive elements, smooth animations, project case studies, and responsive layouts into a single production-ready website.
 
-About
+## ✨ Overview
 
-`devbym.com` serves as my personal digital portfolio, bringing together selected projects, development experience, design work, and the technologies I work with.
+devbym.com serves as my personal online portfolio and professional presence.
 
-The goal was to build more than a simple portfolio — the website itself demonstrates my approach to design, frontend development, backend development, and user experience.
+The website focuses on presenting selected projects, technical skills, development experience, and design work while maintaining a strong visual identity.
 
-Features
+The experience focuses on:
 
-* Responsive portfolio experience
-* Selected projects with dedicated case studies
-* Modern UI/UX design
-* Smooth page and component animations
-* Interactive project presentations
-* Skills and technology showcase
+* Personal branding
+* Selected project presentation
+* UI/UX design
+* Full-stack development
+* Interactive experiences
+* Responsive design
+* Performance and SEO
+* Professional contact and portfolio presentation
+
+## 🚀 Features
+
+* Custom-designed portfolio interface
+* Responsive desktop, tablet, and mobile layouts
+* Animated page transitions and UI elements
+* Interactive project showcase
+* Dedicated project case studies
+* Skills and technology presentation
 * About section
 * Contact section
 * CV download
+* Interactive location / availability presentation
 * Responsive navigation
-* SEO-optimized metadata
+* SEO metadata
+* Open Graph configuration
 * Optimized images and assets
-* Mobile, tablet, and desktop support
+* First-visit loading experience
+* Mobile-first implementation
 
-Tech Stack
+## 🛠️ Tech Stack
 
-Frontend
+### Frontend
 
-* Next.js
-* React
-* TypeScript
-* Tailwind CSS
-* Framer Motion
+* **Next.js** — React framework and application architecture
+* **React** — Component-based UI
+* **TypeScript** — Type-safe development
+* **Tailwind CSS** — Styling and responsive layouts
+* **Framer Motion** — Animations and transitions
 
-Design
+### UI & Visuals
 
-* Figma
-* Adobe Photoshop
-* Adobe Illustrator
+* **React Globe.gl** — Interactive 3D globe
+* **Simple Icons** — Technology iconography
+* **Figma** — UI/UX design
 
-Development
+### Development
 
-* Git
-* GitHub
-* Vercel
+* **Git & GitHub** — Version control
+* **Vercel** — Deployment
 
-Design
+## 📁 Project Structure
 
-The visual direction of the portfolio is minimal and editorial, combining strong typography, subtle motion, and interactive elements.
+```text
+devbym/
+├── app/
+│   ├── components/
+│   ├── work/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+│
+├── public/
+│   ├── images/
+│   └── ...
+│
+├── package.json
+├── tsconfig.json
+├── next.config.ts
+└── README.md
+```
 
-The interface focuses on:
+## ⚙️ Getting Started
 
-* Clear visual hierarchy
-* Strong typography
-* Minimal color palette
-* Micro-interactions
-* Smooth transitions
-* Responsive layouts
+### Prerequisites
 
-Selected Work
+Make sure you have installed:
 
-The portfolio features selected projects covering different areas of web development and digital products, including:
+* Node.js 18+
+* npm
 
-* E-commerce
-* Booking platforms
-* Digital products
-* Auctions
-* Business websites
-* Custom web applications
+### 1. Clone the repository
 
-Each selected project includes additional information about the design and development process.
+```bash
+git clone https://github.com/itsmilos/devbym.git
+```
 
-Performance & SEO
+### 2. Navigate into the project
 
-The website was built with performance and discoverability in mind.
-
-Key considerations include:
-
-* Semantic HTML
-* Optimized images
-* Responsive layouts
-* Metadata and Open Graph configuration
-* Search-engine-friendly page structure
-* Efficient client-side animations
-* Production deployment through Vercel
-
-Getting Started
-
-Clone the repository:
-
-
-git clone https://github.com/your-username/devbym.git
-
-
-Navigate into the project:
-
-
+```bash
 cd devbym
+```
 
+### 3. Install dependencies
 
-Install dependencies:
-
-
+```bash
 npm install
+```
 
+### 4. Start the development server
 
-Start the development server:
-
-
+```bash
 npm run dev
+```
 
+The application will be available at:
 
-The website will be available at:
-
-
+```text
 http://localhost:3000
+```
 
+## 📦 Available Scripts
 
-Deployment
+```bash
+npm run dev
+```
 
-The project is deployed on Vercel with the production domain:
+Starts the development server.
+
+```bash
+npm run build
+```
+
+Creates a production build.
+
+```bash
+npm run start
+```
+
+Starts the application in production mode.
+
+```bash
+npm run lint
+```
+
+Runs the project's linting checks.
+
+## 🎨 Design Direction
+
+The visual direction combines a minimal editorial layout with a modern developer aesthetic.
+
+The interface uses:
+
+* Strong typography
+* Neutral backgrounds
+* Orange accent color
+* Generous whitespace
+* Subtle animations
+* Interactive elements
+* Clear visual hierarchy
+* Responsive layouts
+
+The design system was developed specifically for the portfolio and translated into reusable React components.
+
+## 📱 Responsive Experience
+
+The website was designed to work across:
+
+* Desktop
+* Laptop
+* Tablet
+* Mobile
+
+Typography, spacing, navigation, imagery, animations, and interactive elements adapt across screen sizes.
+
+## 🔍 Performance & SEO
+
+The project was structured with performance and search visibility in mind.
+
+This includes:
+
+* Next.js image optimization
+* Semantic HTML
+* Metadata configuration
+* Open Graph metadata
+* Responsive assets
+* Optimized animations
+* Clean URL structure
+* SEO-focused content structure
+
+## 🌐 Live Website
 
 **https://devbym.com**
 
-Purpose
+## 📄 License
 
-This project represents my approach to combining UI/UX design and full-stack development into polished, production-ready web experiences.
+This project is a personal portfolio project.
 
+The source code is provided for demonstration purposes. Branding, imagery, written content, and project assets may belong to their respective owners and are not licensed for reuse.
+
+---
+
+Built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
