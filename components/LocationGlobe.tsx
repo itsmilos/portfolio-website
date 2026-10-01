@@ -118,8 +118,8 @@ export default function LocationGlobe() {
 
   return (
     <section className="relative mt-12 overflow-hidden border-black/[0.08] sm:mt-16 lg:mt-20">
-      <div className="mx-auto grid max-w-7xl items-center px-6 sm:px-8 lg:min-h-[620px] lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-        <div className="relative z-10 py-16 sm:py-20 lg:py-0">
+      <div className="mx-auto grid min-w-0 max-w-7xl items-center px-6 sm:px-8 lg:min-h-[620px] lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+        <div className="relative z-10 min-w-0 py-16 sm:py-20 lg:py-0">
           <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-black/40">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
             Location
@@ -131,7 +131,7 @@ export default function LocationGlobe() {
             <span className="text-accent">globally.</span>
           </h2>
 
-          <p className="mt-6 max-w-md text-sm leading-6 text-black/45 sm:mt-8 sm:text-base sm:leading-7">
+          <p className="mt-6 max-w-md text-sm leading-6 text-black/45 sm:mt-8">
             Based in Banja Luka, Bosnia &amp; Herzegovina but working with
             clients and teams from anywhere in the world.
           </p>
@@ -161,7 +161,7 @@ export default function LocationGlobe() {
           </div>
         </div>
 
-        <div className="relative flex h-[430px] items-center justify-center sm:h-[540px] lg:h-[700px]">
+        <div className="relative flex min-w-0 max-w-full h-[430px] items-center justify-center overflow-hidden sm:h-[540px] lg:h-[700px]">
           <Globe
             ref={globeRef}
             width={globeSize}
