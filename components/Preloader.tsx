@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Preloader() {
-  const [showPreloader, setShowPreloader] = useState<boolean | null>(null);
+  const [showPreloader, setShowPreloader] = useState(true);
   const [progress, setProgress] = useState(0);
   const hasRun = useRef(false);
 
@@ -20,7 +20,7 @@ export default function Preloader() {
     }
 
     sessionStorage.setItem("portfolio-visited", "true");
-    setShowPreloader(true);
+    document.body.style.overflow = "hidden";
 
     const duration = 1700;
     const start = performance.now();
@@ -36,6 +36,7 @@ export default function Preloader() {
       } else {
         setTimeout(() => {
           setShowPreloader(false);
+          document.body.style.overflow = "";
         }, 300);
       }
     };
@@ -47,7 +48,7 @@ export default function Preloader() {
     <AnimatePresence>
       {showPreloader && (
         <motion.div
-          initial={{ y: 0 }}
+          initial={false}
           exit={{
             y: "-100%",
             transition: {
@@ -55,7 +56,7 @@ export default function Preloader() {
               ease: [0.76, 0, 0.24, 1],
             },
           }}
-          className="fixed inset-0 z-[999999] flex min-h-screen w-screen flex-col justify-end bg-white"
+          className="preloader fixed inset-0 z-[999999] flex min-h-screen w-screen flex-col justify-end bg-white"
         >
           <div className="w-full px-6 pb-8 md:px-10 md:pb-10 lg:px-14 lg:pb-12">
             <div className="flex items-end justify-between">

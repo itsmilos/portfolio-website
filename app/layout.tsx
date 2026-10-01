@@ -77,8 +77,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${inter.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem("portfolio-visited"))document.documentElement.setAttribute("data-visited","")}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"
