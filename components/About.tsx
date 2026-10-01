@@ -5,6 +5,7 @@ import GitHubActivity from "./GithubActivity";
 import LocationGlobe from "./LocationGlobe";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+
 const fadeUp = {
   hidden: {
     opacity: 0,
@@ -16,6 +17,15 @@ const fadeUp = {
     transition: {
       duration: 0.8,
       ease,
+    },
+  },
+};
+
+const stagger = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
     },
   },
 };
@@ -43,7 +53,7 @@ export default function About() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ staggerChildren: 0.12 }}
+              variants={stagger}
             >
               <motion.h2
                 variants={fadeUp}
@@ -56,18 +66,18 @@ export default function About() {
                 variants={fadeUp}
                 className="mt-8 max-w-2xl text-base leading-8 text-black/50 sm:text-lg"
               >
-                I’m a UI/UX designer and full-stack developer focused on turning
-                ideas into thoughtful, high-quality digital products. I started
-                with UI/UX design in 2024, developing a strong foundation in
-                creating interfaces that are clear, intuitive, and visually
-                refined. Over time, I wanted to understand what happens beyond
-                the interface, which led me into full-stack development. For the
-                past year, I’ve been building complete web applications across
-                both frontend and backend. Today, I combine design and
-                development to create products that not only look good, but work
-                well. I care about clean interfaces, maintainable code,
-                performance, and the details that turn a functional website into
-                a polished experience.
+                I’m Milos Lazendic, a UI/UX designer and full-stack developer
+                focused on turning ideas into thoughtful, high-quality digital
+                products. I started with UI/UX design in 2024, developing a
+                strong foundation in creating interfaces that are clear,
+                intuitive, and visually refined. Over time, I wanted to
+                understand what happens beyond the interface, which led me into
+                full-stack development. For the past year, I’ve been building
+                complete web applications across both frontend and backend.
+                Today, I combine design and development to create products that
+                not only look good, but work well. I care about clean
+                interfaces, maintainable code, performance, and the details that
+                turn a functional website into a polished experience.
               </motion.p>
 
               <motion.p

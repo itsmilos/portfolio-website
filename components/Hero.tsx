@@ -52,7 +52,7 @@ const codeLines = [
     parts: [
       { text: "  name", className: "text-white/50" },
       { text: ": ", className: "text-white/30" },
-      { text: '"Milos"', className: "text-green-400" },
+      { text: '"Milos Lazendic"', className: "text-green-400" },
       { text: ",", className: "text-white/30" },
     ],
   },
@@ -127,7 +127,7 @@ export default function Hero() {
   ) => {
     let remaining = visibleCharacters;
 
-    return parts.map((part) => {
+    return parts.map((part, i) => {
       if (remaining <= 0) {
         return null;
       }
@@ -136,7 +136,7 @@ export default function Hero() {
       remaining -= part.text.length;
 
       return (
-        <span key={part.text} className={part.className}>
+        <span key={i} className={part.className}>
           {visibleText}
         </span>
       );
@@ -157,7 +157,7 @@ export default function Hero() {
         >
           <span>01</span>
           <span className="h-px w-8 bg-accent" />
-          <span>Hero</span>
+          <span>Milos Lazendic — Full Stack Developer</span>
         </motion.div>
 
         <div className="grid items-center gap-16 lg:grid-cols-[1.2fr_0.8fr]">
@@ -168,6 +168,10 @@ export default function Hero() {
               animate="animate"
               className="text-[clamp(3.5rem,7vw,8rem)] font-medium leading-[0.9] tracking-[-0.06em]"
             >
+              <span className="sr-only">
+                Milos Lazendic, Full Stack Developer.{" "}
+              </span>
+
               <span className="block overflow-visible">
                 {renderWords(titleLine1)}
               </span>

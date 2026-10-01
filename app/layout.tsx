@@ -15,23 +15,36 @@ const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://devbym.com";
+
 export const metadata: Metadata = {
-  title: "Milos | Full-Stack Web Developer",
+  metadataBase: new URL(siteUrl),
+  title: "Milos Lazendic | Full Stack Developer",
   description:
-    "I build digital products, web applications, and interfaces designed to be used.",
+    "Full-stack developer building fast, custom web applications with React, Next.js and Node.js. From idea and design to deployment.",
+  applicationName: "Milos Lazendic",
+  authors: [{ name: "Milos Lazendic", url: siteUrl }],
+  creator: "Milos Lazendic",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 
   openGraph: {
-    title: "Milos | Full-Stack Web Developer",
+    title: "Milos Lazendic | Full Stack Developer",
     description:
       "Full-stack developer building modern websites, web apps, and digital products.",
-    url: "https://devbym.com",
-    siteName: "Milos",
+    url: siteUrl,
+    siteName: "Milos Lazendic",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Milos | Full-Stack Web Developer",
+        alt: "Milos Lazendic | Full Stack Developer",
       },
     ],
     locale: "en_US",
@@ -40,11 +53,24 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Milos | Full-Stack Web Developer",
+    title: "Milos Lazendic | Full Stack Developer",
     description:
       "Full-stack developer building modern websites, web apps, and digital products.",
     images: ["/og-image.png"],
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Milos Lazendic",
+  alternateName: ["Miloš Lazendić"],
+  jobTitle: "Full Stack Developer",
+  url: siteUrl,
+  sameAs: [
+    "https://github.com/itsmilos",
+    "https://www.linkedin.com/in/milos-lazendic-b45b3841a/",
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -54,6 +80,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Preloader />
         <Navbar />
         {children}
