@@ -2,6 +2,7 @@
 
 import { ArrowUpRight, Mail } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const links = [
   {
@@ -30,7 +31,52 @@ export default function Footer() {
   return (
     <section className="relative overflow-hidden bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex min-h-[650px] flex-col items-center justify-center text-center">
+        <div className="relative flex min-h-[650px] flex-col items-center justify-center overflow-hidden text-center">
+          <motion.div
+            className="pointer-events-none absolute left-[18%] top-[24%] z-20"
+            animate={{
+              x: [0, 80, 170, 120, 30, 0],
+              y: [0, 45, 20, 90, 120, 0],
+            }}
+            transition={{
+              duration: 9,
+              repeat: Infinity,
+              repeatType: "mirror",
+              ease: "easeInOut",
+            }}
+          >
+            <div className="relative">
+              <svg
+                width="15"
+                height="19"
+                viewBox="0 0 15 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.12)]"
+              >
+                <path
+                  d="M1.2 0.8L1.6 17.3L5.7 13.4L8.8 18L11.1 16.4L8 11.9L13.7 11.2L1.2 0.8Z"
+                  fill="white"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinejoin="round"
+                />
+
+                <path
+                  d="M1.2 0.8L1.6 17.3L5.7 13.4L8.8 18L11.1 16.4L8 11.9L13.7 11.2L1.2 0.8Z"
+                  fill="#EE7B30"
+                  stroke="#EE7B30"
+                  strokeWidth="1"
+                  strokeLinejoin="round"
+                />
+              </svg>
+
+              <span className="absolute left-5 top-5 whitespace-nowrap rounded-[3px] bg-[#EE7B30] px-1.5 py-[3px] text-[9px] font-medium leading-none text-white">
+                Milos
+              </span>
+            </div>
+          </motion.div>
+
           <div className="mb-8 flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-accent/60" />
 
@@ -41,7 +87,7 @@ export default function Footer() {
             <span className="h-px w-8 bg-accent/60" />
           </div>
 
-          <h2 className="text-5xl font-semibold tracking-[-0.05em] text-ac] sm:text-6xl lg:text-8xl">
+          <h2 className="text-5xl font-semibold tracking-[-0.05em] text-[#09090B] sm:text-6xl lg:text-8xl">
             Have a project
             <br />
             <span className="text-accent">in mind?</span>
