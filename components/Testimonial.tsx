@@ -169,7 +169,7 @@ export default function Testimonial() {
                 }}
                 className="mt-10 text-[clamp(2rem,3vw,3rem)] font-medium italic leading-[1.1] tracking-[-0.04em]"
               >
-                “Nice guy. Would definitely work with him again.”
+                “Nice guy. Will try again in future.”
               </motion.blockquote>
             </div>
 
