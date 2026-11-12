@@ -33,8 +33,6 @@ const ease = [0.16, 1, 0.3, 1] as const;
 export default function Footer() {
   return (
     <section className="relative overflow-hidden bg-white">
-
-      {/* Geometric background */}
       <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
         <svg
           className="absolute h-[900px] w-[1500px] opacity-60"
@@ -73,7 +71,9 @@ export default function Footer() {
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay, ease }}
-              style={{ transformOrigin: `${x + 22.5}px ${y + 22.5}px` }}
+              style={{
+                transformOrigin: `${x + 22.5}px ${y + 22.5}px`,
+              }}
               x={x}
               y={y}
               width="45"
@@ -109,11 +109,7 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-
-       
         <div className="relative flex min-h-[650px] flex-col items-center justify-center overflow-hidden py-24 text-center">
-
-          
           <motion.div
             className="pointer-events-none absolute left-[18%] top-[24%] z-20"
             animate={{
@@ -192,30 +188,39 @@ export default function Footer() {
             worth putting into the world.
           </motion.p>
 
-          <motion.a
-            href="mailto:hello@devbym.com"
+        
+          <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.18, ease }}
-            className="group mt-10 inline-flex items-center gap-4 rounded-full border border-black/10 bg-black/[0.025] px-6 py-4 transition-all duration-300 hover:border-accent/40 hover:bg-accent/[0.06]"
+            className="mt-10 flex flex-col items-center gap-3"
           >
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-black transition-transform duration-300 group-hover:scale-105">
-              <Mail className="h-5 w-5" strokeWidth={2} />
+            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-black/35">
+              Reach me directly at
             </span>
 
-            <span className="text-sm font-medium text-[#09090B] sm:text-base">
-              Start a conversation
-            </span>
+            <a
+              href="mailto:hello@devbym.com"
+              className="group inline-flex items-center gap-3 rounded-full border border-black/10 bg-black/[0.025] px-6 py-4 transition-all duration-300 hover:border-accent/40 hover:bg-accent/[0.06]"
+            >
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-black transition-transform duration-300 group-hover:scale-105">
+                <Mail className="h-5 w-5" strokeWidth={2} />
+              </span>
 
-            <ArrowUpRight className="h-4 w-4 text-black/25 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
-          </motion.a>
+              <span className="text-base font-medium tracking-tight text-[#09090B] transition-colors duration-300 group-hover:text-accent sm:text-lg">
+                hello@devbym.com
+              </span>
+
+              <ArrowUpRight className="h-4 w-4 text-black/25 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
+            </a>
+
+           
+          </motion.div>
         </div>
 
-        
         <footer className="border-t border-black/[0.08]">
           <div className="flex flex-col gap-8 py-8 lg:flex-row lg:items-center lg:justify-between">
-
             <div>
               <span className="text-[#09090B]">
                 <span className="text-accent">&lt;</span>
@@ -258,7 +263,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col gap-3 border-t border-black/[0.06] py-5 text-[10px] uppercase tracking-[0.18em] text-black/25 sm:flex-row sm:items-center sm:justify-center">
-            <span>© 2026 Milos. Designed & built with intention.</span>
+            <span>© 2026 Milos. All rights reserved.</span>
           </div>
         </footer>
       </div>
