@@ -1,7 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { useRef } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useInView,
+} from "framer-motion";
 
 const steps = [
   {
@@ -10,7 +15,7 @@ const steps = [
     description:
       "I start by understanding the idea, the business behind it and the people who will use it. I define the requirements, content structure and goals before development begins.",
     image: "/understand1.webp",
-    color: "#F4E9E0",
+    color: "#F4EAE3",
     accent: "#C85E22",
   },
   {
@@ -19,7 +24,7 @@ const steps = [
     description:
       "I create custom UI/UX around the product instead of starting from a template. Layout, typography, navigation, interactions and responsive behavior are designed to fit the brand and the people using it.",
     image: "/design2.webp",
-    color: "#EDE8E1",
+    color: "#F4EBE5",
     accent: "#A9683F",
   },
   {
@@ -28,7 +33,7 @@ const steps = [
     description:
       "I turn the design into a functional product building the frontend, backend, database and integrations needed behind it.",
     image: "/develop.webp",
-    color: "#E6E8E5",
+    color: "#EFEFEF",
     accent: "#53645A",
   },
   {
@@ -37,7 +42,7 @@ const steps = [
     description:
       "Before launch, I look beyond whether the application works. I optimize performance, responsiveness and the technical foundations that affect how the product is experienced and how easily it can be discovered.",
     image: "/optimise.webp",
-    color: "#E8E5EA",
+    color: "#F0ECEF",
     accent: "#66546F",
   },
   {
@@ -46,184 +51,186 @@ const steps = [
     description:
       "Once everything is ready, I take the product from development to production. I handle the deployment, environment configuration and final checks so it's ready for real users.",
     image: "/deploy.webp",
-    color: "#E9E5DE",
+    color: "#F2ECE5",
     accent: "#8A6B42",
   },
 ];
 
-export default function Approach() {
-  const [active, setActive] = useState(0);
-  const [offsetStep, setOffsetStep] = useState(36);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
-    const update = () => setOffsetStep(mq.matches ? 36 : 10);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
-
-  const maxOffset = (steps.length - 1) * offsetStep;
-
-  const { scrollYProgress } = useScroll({
-    target: wrapperRef,
-    offset: ["start start", "end end"],
-  });
-
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    setActive(Math.min(steps.length - 1, Math.floor(v * steps.length)));
+function MobileCard({ step }: { step: (typeof steps)[number] }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.2,
   });
 
   return (
-    <section className="relative bg-[#09090B] px-3 py-24 text-white md:px-5 md:py-32 lg:px-6">
-      <div className="pointer-events-none absolute inset-0 overflow-clip">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-            maskImage:
-              "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)",
-          }}
-        />
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 45 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      style={{ backgroundColor: step.color }}
+      className="relative flex min-h-[490px] w-full flex-col justify-between overflow-hidden rounded-[28px] p-6 text-[#09090B]"
+    >
+      <div
+        className="absolute inset-0"
+        style={{ backgroundColor: `${step.accent}08` }}
+      />
 
-        <div className="sticky top-0 h-screen">
-          <motion.div
-            animate={{ backgroundColor: steps[active].accent }}
-            transition={{ duration: 0.8 }}
-            className="absolute -left-40 top-1/4 h-[420px] w-[420px] rounded-full opacity-30 blur-[130px]"
-          />
-          <motion.div
-            animate={{ backgroundColor: steps[active].accent }}
-            transition={{ duration: 0.8 }}
-            className="absolute -right-40 bottom-1/4 h-[480px] w-[480px] rounded-full opacity-25 blur-[150px]"
-          />
-        </div>
+      <div className="relative z-10 flex flex-col gap-4">
+        <span
+          className="w-fit rounded-full border border-black/5 bg-white/70 px-2.5 py-1 font-mono text-xs font-bold tracking-[0.2em]"
+          style={{ color: step.accent }}
+        >
+          {step.number} — 05
+        </span>
+
+        <h3
+          className="text-3xl font-semibold tracking-tight"
+          style={{ color: step.accent }}
+        >
+          {step.title}
+        </h3>
+
+        <p className="text-base leading-relaxed text-[#09090B]/75">
+          {step.description}
+        </p>
       </div>
 
-      <div className="relative mx-auto max-w-[1880px]">
-        <div className="mb-16 max-w-6xl px-2 md:mb-32 md:px-6">
-          <div className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-accent">
+      <div
+        className="relative z-10 mt-8 h-[220px] w-full overflow-hidden rounded-2xl"
+        style={{ border: `1px solid ${step.accent}33` }}
+      >
+        <img
+          src={step.image}
+          alt={step.title}
+          loading="lazy"
+          className="h-full w-full object-cover"
+        />
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: `linear-gradient(to top right, ${step.accent}33, transparent 70%)`,
+            mixBlendMode: "overlay",
+          }}
+        />
+      </div>
+    </motion.div>
+  );
+}
+
+export default function Approach() {
+  const targetRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end end"],
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"]);
+
+  return (
+    <section
+      ref={targetRef}
+      className="relative bg-white text-[#09090B] lg:h-[200vh]"
+    >
+      <div className="relative overflow-hidden lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-center">
+
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden bg-white">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+
+          <img
+            src="/clouds1.webp"
+            alt=""
+            className="absolute inset-0 h-full w-full scale-[1.3] object-cover md:scale-[1.15]"
+            style={{
+              opacity: 0.65,
+              mixBlendMode: "normal",
+              WebkitMaskImage:
+                "linear-gradient(to bottom, transparent 0%, transparent 8%, rgba(0,0,0,0.15) 18%, black 40%, black 60%, rgba(0,0,0,0.15) 82%, transparent 92%, transparent 100%)",
+              maskImage:
+                "linear-gradient(to bottom, transparent 0%, transparent 8%, rgba(0,0,0,0.15) 18%, black 40%, black 60%, rgba(0,0,0,0.15) 82%, transparent 92%, transparent 100%)",
+            }}
+          />
+
+          <div className="absolute inset-0 bg-white/10" />
+        </div>{/* Section heading */}
+        <div className="relative z-10 mb-10 max-w-2xl px-6 pt-24 md:px-16 lg:mb-8 lg:pt-0">
+          <div className="mb-3 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-[#C85E22]">
             <span>03</span>
-            <span className="h-px w-8 bg-accent" />
-            <span>Approach</span>
+            <span className="h-px w-8 bg-[#C85E22]" />
+            <span>Approach & Workflow</span>
           </div>
 
-          <h2 className="text-[clamp(3rem,6.5vw,7.5rem)] font-medium leading-[0.95] tracking-[-0.055em]">
-            Good software starts with a good idea. Great software makes the idea
-            feel obvious.
-          </h2>
-
-          <p className="mt-10 max-w-xl text-lg leading-relaxed text-white/50 md:text-xl">
-            A good product shouldn't make people think about how to use it.
-          </p>
+          <h1 className="text-[clamp(2.5rem,5vw,5.5rem)] font-medium leading-[1] tracking-[-0.04em]">
+            How I bring ideas to life.
+          </h1>
         </div>
 
-        <div ref={wrapperRef} style={{ height: `${steps.length * 100}vh` }}>
-          <div className="sticky top-[10svh] md:top-[3vh]">
-            <div className="relative h-[80svh] w-full md:h-[min(1000px,94vh)]">
-              {steps.map((step, index) => {
-                const slot = index - active;
-                const gone = slot < 0;
-                const offset = Math.max(0, slot) * offsetStep;
+        
+        <motion.div
+          style={{ x }}
+          className="relative z-10 hidden items-center gap-8 pl-16 pr-12 lg:flex"
+        >
+          {steps.map((step) => (
+            <div
+              key={step.number}
+              style={{ backgroundColor: step.color }}
+              className="group relative flex h-[54vh] w-[480px] shrink-0 flex-col justify-between overflow-hidden rounded-[28px] p-8 text-[#09090B] transition-all duration-500 hover:shadow-2xl"
+            >
+              <div
+                className="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
+                style={{ backgroundColor: step.accent }}
+              />
 
-                return (
-                  <motion.div
-                    key={step.number}
-                    initial={false}
-                    animate={{
-                      x: gone ? -100 : offset,
-                      y: gone ? 0 : offset,
-                      opacity: gone ? 0 : 1,
-                    }}
-                    transition={{ type: "spring", stiffness: 140, damping: 22 }}
-                    style={{
-                      zIndex: steps.length - index,
-                      backgroundColor: step.color,
-                      width: `calc(100% - ${maxOffset}px)`,
-                      height: `calc(100% - ${maxOffset}px)`,
-                      pointerEvents: gone ? "none" : "auto",
-                    }}
-                    className="absolute left-0 top-0 flex flex-col overflow-hidden rounded-[28px] border border-white/10 p-6 shadow-[0_30px_80px_rgba(0,0,0,0.5)] md:block md:rounded-[48px] md:p-14 lg:p-16"
-                  >
-                    <div
-                      className="relative h-52 w-full shrink-0 overflow-hidden rounded-2xl sm:h-64 md:h-[56%] md:w-[54%] md:rounded-3xl"
-                      style={{
-                        boxShadow: `0 0 36px ${step.accent}77`,
-                        border: `1px solid ${step.accent}99`,
-                      }}
-                    >
-                      <img
-                        src={step.image}
-                        alt={`${step.title} illustration`}
-                        width={1400}
-                        height={1000}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-full w-full object-cover object-center"
-                      />
-                      <div
-                        className="pointer-events-none absolute inset-0"
-                        style={{
-                          mixBlendMode: "soft-light",
-                          background: `linear-gradient(to top right, ${step.accent}cc, transparent 55%, ${step.accent}77)`,
-                        }}
-                      />
-                      <div
-                        className="pointer-events-none absolute inset-0"
-                        style={{
-                          boxShadow: `inset 0 0 80px ${step.accent}99`,
-                        }}
-                      />
-                    </div>
+              <div className="relative z-10 flex flex-col gap-3">
+                <span
+                  className="w-fit rounded-full border border-black/5 bg-white/70 px-2.5 py-1 font-mono text-xs font-bold tracking-[0.2em] transition-colors duration-500 group-hover:bg-white/20 group-hover:text-white group-hover:border-white/20"
+                  style={{ color: step.accent }}
+                >
+                  {step.number} — 05
+                </span>
 
-                    <div className="mt-5 text-[#09090B] md:hidden">
-                      <span
-                        className="font-mono text-xs tracking-[0.2em]"
-                        style={{ color: `${step.accent}99` }}
-                      >
-                        {step.number}
-                      </span>
-                      <p className="mt-3 text-base leading-relaxed text-black/60">
-                        {step.description}
-                      </p>
-                    </div>
+                <h3
+                  className="text-3xl font-semibold tracking-tight transition-colors duration-500 group-hover:text-white"
+                  style={{ color: step.accent }}
+                >
+                  {step.title}
+                </h3>
 
-                    <div className="absolute right-14 top-14 hidden max-w-[34%] text-[#09090B] md:block lg:right-16 lg:top-16 xl:max-w-lg">
-                      <span
-                        className="font-mono text-sm tracking-[0.2em]"
-                        style={{ color: `${step.accent}99` }}
-                      >
-                        {step.number}
-                      </span>
-                      <p className="mt-5 text-base leading-relaxed text-black/55 lg:text-lg xl:text-xl">
-                        {step.description}
-                      </p>
-                      <div
-                        className="mt-8 h-px w-20"
-                        style={{ backgroundColor: `${step.accent}55` }}
-                      />
-                    </div>
+                <p className="leading-relaxed text-[#09090B]/75 transition-colors duration-500 group-hover:text-white/90">
+                  {step.description}
+                </p>
+              </div>
 
-                    <h3
-                      className="mt-auto text-[clamp(3.5rem,15vw,5.5rem)] font-medium leading-[0.85] tracking-[-0.065em] md:absolute md:bottom-14 md:left-14 md:mt-0 md:text-[clamp(4.5rem,10vw,11rem)] lg:bottom-16 lg:left-16"
-                      style={{ color: step.accent }}
-                    >
-                      {step.title}
-                    </h3>
+              <div
+                className="relative z-10 mt-4 h-[42%] w-full overflow-hidden rounded-2xl"
+                style={{ border: `1px solid ${step.accent}33` }}
+              >
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                />
 
-                    <span className="absolute bottom-14 right-14 hidden font-mono text-xs tracking-[0.2em] text-black/30 md:block lg:bottom-16 lg:right-16">
-                      {step.number} / {String(steps.length).padStart(2, "0")}
-                    </span>
-                  </motion.div>
-                );
-              })}
+                <div
+                  className="pointer-events-none absolute inset-0 transition-opacity duration-300"
+                  style={{
+                    background: `linear-gradient(to top right, ${step.accent}33, transparent 70%)`,
+                    mixBlendMode: "overlay",
+                  }}
+                />
+              </div>
             </div>
-          </div>
+          ))}
+        </motion.div>
+
+       
+        <div className="relative z-10 flex flex-col gap-8 px-5 pb-20 lg:hidden">
+          {steps.map((step) => (
+            <MobileCard key={step.number} step={step} />
+          ))}
         </div>
       </div>
     </section>
