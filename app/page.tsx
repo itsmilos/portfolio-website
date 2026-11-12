@@ -1,5 +1,6 @@
 import About from "@/components/About";
 import Approach from "@/components/Approach";
+import FAQ from "@/components/Faq";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Resume from "@/components/Resume";
@@ -19,6 +20,7 @@ export default function Home() {
       <StackPage />
       <Resume />
       <Testimonial />
+      <FAQ />
     </>
   );
 }

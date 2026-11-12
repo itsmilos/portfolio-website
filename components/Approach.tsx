@@ -154,7 +154,7 @@ export default function Approach() {
           />
 
           <div className="absolute inset-0 bg-white/10" />
-        </div>{/* Section heading */}
+        </div>
         <div className="relative z-10 mb-10 max-w-2xl px-6 pt-24 md:px-16 lg:mb-8 lg:pt-0">
           <div className="mb-3 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-[#C85E22]">
             <span>03</span>

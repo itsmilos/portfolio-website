@@ -1,3 +1,4 @@
+
 "use client";
 
 import { ArrowUpRight, Mail } from "lucide-react";
@@ -27,62 +28,92 @@ const links = [
   },
 ];
 
+const ease = [0.16, 1, 0.3, 1] as const;
+
 export default function Footer() {
   return (
     <section className="relative overflow-hidden bg-white">
-      
-     
-      <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden pointer-events-none">
+
+      {/* Geometric background */}
+      <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
         <svg
           className="absolute h-[900px] w-[1500px] opacity-60"
           viewBox="0 0 1400 800"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-         
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.05 }} x="10" y="50" width="45" height="45" className="fill-accent/[0.07] stroke-accent/25 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.08 }} x="55" y="50" width="45" height="45" className="fill-black/[0.02] stroke-black/10 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.12 }} x="100" y="95" width="45" height="45" className="fill-accent/[0.06] stroke-accent/20 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.18 }} x="145" y="140" width="45" height="45" className="fill-black/[0.03] stroke-black/10 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.22 }} x="55" y="185" width="45" height="45" className="fill-accent/[0.05] stroke-accent/20 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.28 }} x="100" y="230" width="45" height="45" className="fill-black/[0.02] stroke-black/10 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.35 }} x="145" y="230" width="45" height="45" className="fill-accent/[0.07] stroke-accent/25 stroke-[1]" />
+          {[
+            [10, 50, 0],
+            [55, 50, 0.03],
+            [100, 95, 0.07],
+            [145, 140, 0.12],
+            [55, 185, 0.16],
+            [100, 230, 0.2],
+            [145, 230, 0.24],
+            [465, 40, 0.08],
+            [510, 40, 0.12],
+            [555, 85, 0.16],
+            [465, 130, 0.2],
+            [510, 130, 0.24],
+            [600, 175, 0.28],
+            [845, 30, 0.05],
+            [890, 30, 0.09],
+            [935, 75, 0.13],
+            [980, 75, 0.17],
+            [890, 120, 0.21],
+            [935, 120, 0.25],
+            [1025, 165, 0.29],
+            [845, 210, 0.33],
+            [980, 210, 0.37],
+            [1025, 255, 0.41],
+          ].map(([x, y, delay], index) => (
+            <motion.rect
+              key={index}
+              initial={{ scale: 0.7, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay, ease }}
+              style={{ transformOrigin: `${x + 22.5}px ${y + 22.5}px` }}
+              x={x}
+              y={y}
+              width="45"
+              height="45"
+              className={
+                index % 3 === 0
+                  ? "fill-accent/[0.07] stroke-accent/25 stroke-[1]"
+                  : "fill-black/[0.02] stroke-black/10 stroke-[1]"
+              }
+            />
+          ))}
 
-         
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.15 }} x="465" y="40" width="45" height="45" className="fill-accent/[0.08] stroke-accent/30 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.2 }} x="510" y="40" width="45" height="45" className="fill-black/[0.03] stroke-black/10 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.25 }} x="555" y="85" width="45" height="45" className="fill-accent/[0.06] stroke-accent/20 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.3 }} x="465" y="130" width="45" height="45" className="fill-black/[0.02] stroke-black/10 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.35 }} x="510" y="130" width="45" height="45" className="fill-accent/[0.07] stroke-accent/25 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.4 }} x="600" y="175" width="45" height="45" className="fill-black/[0.03] stroke-black/10 stroke-[1]" />
-
-         
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.1 }} x="845" y="30" width="45" height="45" className="fill-black/[0.02] stroke-black/10 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.14 }} x="890" y="30" width="45" height="45" className="fill-accent/[0.08] stroke-accent/30 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.18 }} x="935" y="75" width="45" height="45" className="fill-black/[0.03] stroke-black/10 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.22 }} x="980" y="75" width="45" height="45" className="fill-accent/[0.06] stroke-accent/20 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.26 }} x="890" y="120" width="45" height="45" className="fill-black/[0.02] stroke-black/10 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.3 }} x="935" y="120" width="45" height="45" className="fill-accent/[0.07] stroke-accent/25 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.35 }} x="1025" y="165" width="45" height="45" className="fill-black/[0.03] stroke-black/10 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.4 }} x="845" y="210" width="45" height="45" className="fill-accent/[0.05] stroke-accent/20 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.45 }} x="980" y="210" width="45" height="45" className="fill-black/[0.02] stroke-black/10 stroke-[1]" />
-          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.5 }} x="1025" y="255" width="45" height="45" className="fill-accent/[0.08] stroke-accent/30 stroke-[1]" />
-
-         
-          <circle cx="10" cy="50" r="2" className="fill-white stroke-accent stroke-[1.5]" />
-          <circle cx="100" cy="95" r="2" className="fill-white stroke-accent stroke-[1.5]" />
-          <circle cx="55" cy="185" r="2" className="fill-white stroke-accent stroke-[1.5]" />
-          <circle cx="465" cy="40" r="2" className="fill-white stroke-accent stroke-[1.5]" />
-          <circle cx="555" cy="85" r="2" className="fill-white stroke-accent stroke-[1.5]" />
-          <circle cx="845" cy="30" r="2" className="fill-white stroke-accent stroke-[1.5]" />
-          <circle cx="980" cy="75" r="2" className="fill-white stroke-accent stroke-[1.5]" />
-          <circle cx="890" cy="120" r="2" className="fill-white stroke-accent stroke-[1.5]" />
-          <circle cx="1025" cy="255" r="2" className="fill-white stroke-accent stroke-[1.5]" />
+          {[
+            [10, 50],
+            [100, 95],
+            [55, 185],
+            [465, 40],
+            [555, 85],
+            [845, 30],
+            [980, 75],
+            [890, 120],
+            [1025, 255],
+          ].map(([x, y], index) => (
+            <circle
+              key={index}
+              cx={x}
+              cy={y}
+              r="2"
+              className="fill-white stroke-accent stroke-[1.5]"
+            />
+          ))}
         </svg>
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="relative flex min-h-[650px] flex-col items-center justify-center overflow-hidden text-center">
+
+       
+        <div className="relative flex min-h-[650px] flex-col items-center justify-center overflow-hidden py-24 text-center">
+
+          
           <motion.div
             className="pointer-events-none absolute left-[18%] top-[24%] z-20"
             animate={{
@@ -107,14 +138,6 @@ export default function Footer() {
               >
                 <path
                   d="M1.2 0.8L1.6 17.3L5.7 13.4L8.8 18L11.1 16.4L8 11.9L13.7 11.2L1.2 0.8Z"
-                  fill="white"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinejoin="round"
-                />
-
-                <path
-                  d="M1.2 0.8L1.6 17.3L5.7 13.4L8.8 18L11.1 16.4L8 11.9L13.7 11.2L1.2 0.8Z"
                   fill="#EE7B30"
                   stroke="#EE7B30"
                   strokeWidth="1"
@@ -128,29 +151,53 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          <div className="mb-8 flex items-center justify-center gap-3">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease }}
+            className="mb-8 flex items-center justify-center gap-3"
+          >
             <span className="h-px w-8 bg-accent/60" />
 
             <span className="text-xs font-medium uppercase tracking-[0.25em] text-accent">
-              Let&apos;s work together
+              Have something in mind?
             </span>
 
             <span className="h-px w-8 bg-accent/60" />
-          </div>
+          </motion.div>
 
-          <h2 className="text-5xl font-semibold tracking-[-0.05em] text-[#09090B] sm:text-6xl lg:text-8xl">
-            Have a project
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65, delay: 0.05, ease }}
+            className="text-5xl font-semibold tracking-[-0.065em] text-[#09090B] sm:text-6xl lg:text-8xl"
+          >
+            Let's build
             <br />
-            <span className="text-accent">in mind?</span>
-          </h2>
+            something
+            <br />
+            <span className="text-accent">that matters.</span>
+          </motion.h2>
 
-          <p className="mx-auto mt-8 max-w-xl text-base leading-7 text-black/45 sm:text-lg">
-            Have an idea, a project, or just want to talk? I&apos;m always open
-            to new opportunities and interesting ideas.
-          </p>
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.12, ease }}
+            className="mx-auto mt-8 max-w-lg text-base leading-7 text-black/45 sm:text-lg"
+          >
+            From the first idea to the final details, let's create something
+            worth putting into the world.
+          </motion.p>
 
-          <a
+          <motion.a
             href="mailto:hello@devbym.com"
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.18, ease }}
             className="group mt-10 inline-flex items-center gap-4 rounded-full border border-black/10 bg-black/[0.025] px-6 py-4 transition-all duration-300 hover:border-accent/40 hover:bg-accent/[0.06]"
           >
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-black transition-transform duration-300 group-hover:scale-105">
@@ -158,15 +205,17 @@ export default function Footer() {
             </span>
 
             <span className="text-sm font-medium text-[#09090B] sm:text-base">
-              hello@devbym.com
+              Start a conversation
             </span>
 
             <ArrowUpRight className="h-4 w-4 text-black/25 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
-          </a>
+          </motion.a>
         </div>
 
+        
         <footer className="border-t border-black/[0.08]">
           <div className="flex flex-col gap-8 py-8 lg:flex-row lg:items-center lg:justify-between">
+
             <div>
               <span className="text-[#09090B]">
                 <span className="text-accent">&lt;</span>
@@ -174,7 +223,9 @@ export default function Footer() {
                 <span className="text-accent">/&gt;</span>
               </span>
 
-              <p className="mt-1 text-xs text-black/35">Full-Stack Developer</p>
+              <p className="mt-1 text-xs text-black/35">
+                Independent Full-Stack Developer
+              </p>
             </div>
 
             <nav className="flex flex-wrap items-center gap-2">
@@ -185,7 +236,9 @@ export default function Footer() {
                   <a
                     key={link.label}
                     href={link.href}
-                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    target={
+                      link.href.startsWith("http") ? "_blank" : undefined
+                    }
                     rel={
                       link.href.startsWith("http")
                         ? "noopener noreferrer"
@@ -205,7 +258,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col gap-3 border-t border-black/[0.06] py-5 text-[10px] uppercase tracking-[0.18em] text-black/25 sm:flex-row sm:items-center sm:justify-center">
-            <span>All rights reserved milos.dev 2026</span>
+            <span>© 2026 Milos. Designed & built with intention.</span>
           </div>
         </footer>
       </div>
