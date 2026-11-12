@@ -12,6 +12,7 @@ import {
   siSocketdotio,
   siSupabase,
 } from "simple-icons/icons";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -219,9 +220,7 @@ export default function GemoraPage() {
                       Live bidding
                     </span>
 
-                    <span className="text-sm transition-transform duration-300 group-hover:translate-x-1">
-                      ↗
-                    </span>
+                    <ArrowUpRight className="h-3.5 w-3.5 text-black transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />  
                   </motion.div>
                 </div>
               </div>
@@ -664,9 +663,7 @@ export default function GemoraPage() {
                     </span>
                   </div>
 
-                  <span className="mr-2 text-xl text-black/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent">
-                    ↗
-                  </span>
+               <ArrowUpRight className="h-5 w-5 text-black/50 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </a>
 
                 <a
@@ -689,9 +686,7 @@ export default function GemoraPage() {
                     </span>
                   </div>
 
-                  <span className="mr-2 text-xl text-black/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent">
-                    ↗
-                  </span>
+                 <ArrowUpRight className="h-5 w-5 text-black/50 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </a>
 
                 <a
@@ -714,9 +709,7 @@ export default function GemoraPage() {
                     </span>
                   </div>
 
-                  <span className="mr-2 text-xl text-black/40 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent">
-                    ↗
-                  </span>
+                 <ArrowUpRight className="h-5 w-5 text-black/50 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </a>
               </div>
             </motion.div>
@@ -735,9 +728,7 @@ export default function GemoraPage() {
                   className="group mt-2 inline-flex items-center gap-3 text-xl font-medium tracking-[-0.03em]"
                 >
                   Lumé Beauty Studio
-                  <span className="transition-transform duration-300 group-hover:-translate-x-1">
-                    ←
-                  </span>
+               <ArrowLeft className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </div>
 
@@ -751,9 +742,7 @@ export default function GemoraPage() {
                   className="group mt-2 inline-flex items-center gap-3 text-xl font-medium tracking-[-0.03em]"
                 >
                   Weston Renn
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
+                 <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" /> 
                 </Link>
               </div>
             </motion.div>

@@ -3,6 +3,11 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
+  ArrowUpRight,
+  ArrowLeft,
+  ArrowRight,
+} from "lucide-react";
+import {
   siNextdotjs,
   siTypescript,
   siTailwindcss,
@@ -198,9 +203,7 @@ export default function LumePage() {
                       View live site
                     </span>
 
-                    <span className="text-sm transition-transform duration-300 group-hover:translate-x-1">
-                      ↗
-                    </span>
+                    <ArrowUpRight className="h-3.5 w-3.5 text-black transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </motion.div>
                 </div>
               </div>
@@ -551,9 +554,7 @@ export default function LumePage() {
                     </div>
                   </div>
 
-                  <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
-                    ↗
-                  </span>
+                  <ArrowUpRight className="h-5 w-5 text-black/50 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </a>
 
                 <a
@@ -578,9 +579,7 @@ export default function LumePage() {
                     </div>
                   </div>
 
-                  <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
-                    ↗
-                  </span>
+                  <ArrowUpRight className="h-5 w-5 text-black/50 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </a>
               </div>
             </motion.div>
@@ -598,10 +597,8 @@ export default function LumePage() {
                   href="/work/vervida"
                   className="group mt-2 inline-flex items-center gap-3 text-xl font-medium tracking-[-0.03em]"
                 >
+                  <ArrowLeft className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1" />
                   Vervida Skincare
-                  <span className="transition-transform duration-300 group-hover:-translate-x-1">
-                    ←
-                  </span>
                 </Link>
               </div>
 
@@ -615,9 +612,7 @@ export default function LumePage() {
                   className="group mt-2 inline-flex items-center gap-3 text-xl font-medium tracking-[-0.03em]"
                 >
                   GEMORA
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
+                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </div>
             </motion.div>
