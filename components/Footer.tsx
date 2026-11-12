@@ -30,7 +30,58 @@ const links = [
 export default function Footer() {
   return (
     <section className="relative overflow-hidden bg-white">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      
+     
+      <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden pointer-events-none">
+        <svg
+          className="absolute h-[900px] w-[1500px] opacity-60"
+          viewBox="0 0 1400 800"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+         
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.05 }} x="10" y="50" width="45" height="45" className="fill-accent/[0.07] stroke-accent/25 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.08 }} x="55" y="50" width="45" height="45" className="fill-black/[0.02] stroke-black/10 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.12 }} x="100" y="95" width="45" height="45" className="fill-accent/[0.06] stroke-accent/20 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.18 }} x="145" y="140" width="45" height="45" className="fill-black/[0.03] stroke-black/10 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.22 }} x="55" y="185" width="45" height="45" className="fill-accent/[0.05] stroke-accent/20 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.28 }} x="100" y="230" width="45" height="45" className="fill-black/[0.02] stroke-black/10 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.35 }} x="145" y="230" width="45" height="45" className="fill-accent/[0.07] stroke-accent/25 stroke-[1]" />
+
+         
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.15 }} x="465" y="40" width="45" height="45" className="fill-accent/[0.08] stroke-accent/30 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.2 }} x="510" y="40" width="45" height="45" className="fill-black/[0.03] stroke-black/10 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.25 }} x="555" y="85" width="45" height="45" className="fill-accent/[0.06] stroke-accent/20 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.3 }} x="465" y="130" width="45" height="45" className="fill-black/[0.02] stroke-black/10 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.35 }} x="510" y="130" width="45" height="45" className="fill-accent/[0.07] stroke-accent/25 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.4 }} x="600" y="175" width="45" height="45" className="fill-black/[0.03] stroke-black/10 stroke-[1]" />
+
+         
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.1 }} x="845" y="30" width="45" height="45" className="fill-black/[0.02] stroke-black/10 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.14 }} x="890" y="30" width="45" height="45" className="fill-accent/[0.08] stroke-accent/30 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.18 }} x="935" y="75" width="45" height="45" className="fill-black/[0.03] stroke-black/10 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.22 }} x="980" y="75" width="45" height="45" className="fill-accent/[0.06] stroke-accent/20 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.26 }} x="890" y="120" width="45" height="45" className="fill-black/[0.02] stroke-black/10 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.3 }} x="935" y="120" width="45" height="45" className="fill-accent/[0.07] stroke-accent/25 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.35 }} x="1025" y="165" width="45" height="45" className="fill-black/[0.03] stroke-black/10 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.4 }} x="845" y="210" width="45" height="45" className="fill-accent/[0.05] stroke-accent/20 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.45 }} x="980" y="210" width="45" height="45" className="fill-black/[0.02] stroke-black/10 stroke-[1]" />
+          <motion.rect initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.25, delay: 0.5 }} x="1025" y="255" width="45" height="45" className="fill-accent/[0.08] stroke-accent/30 stroke-[1]" />
+
+         
+          <circle cx="10" cy="50" r="2" className="fill-white stroke-accent stroke-[1.5]" />
+          <circle cx="100" cy="95" r="2" className="fill-white stroke-accent stroke-[1.5]" />
+          <circle cx="55" cy="185" r="2" className="fill-white stroke-accent stroke-[1.5]" />
+          <circle cx="465" cy="40" r="2" className="fill-white stroke-accent stroke-[1.5]" />
+          <circle cx="555" cy="85" r="2" className="fill-white stroke-accent stroke-[1.5]" />
+          <circle cx="845" cy="30" r="2" className="fill-white stroke-accent stroke-[1.5]" />
+          <circle cx="980" cy="75" r="2" className="fill-white stroke-accent stroke-[1.5]" />
+          <circle cx="890" cy="120" r="2" className="fill-white stroke-accent stroke-[1.5]" />
+          <circle cx="1025" cy="255" r="2" className="fill-white stroke-accent stroke-[1.5]" />
+        </svg>
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <div className="relative flex min-h-[650px] flex-col items-center justify-center overflow-hidden text-center">
           <motion.div
             className="pointer-events-none absolute left-[18%] top-[24%] z-20"
