@@ -33,6 +33,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 export default function Footer() {
   return (
     <section className="relative overflow-hidden bg-white">
+
       <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
         <svg
           className="absolute h-[900px] w-[1500px] opacity-60"

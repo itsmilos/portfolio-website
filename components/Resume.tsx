@@ -127,7 +127,7 @@ export default function Resume() {
             </div>
 
             <motion.a
-              href="/Milos_Lazendic_CV.pdf"
+              href="/Milos-Lazendic_CV.pdf"
               download
               whileHover={{ y: -4 }}
               whileTap={{ scale: 0.97 }}
